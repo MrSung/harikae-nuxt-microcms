@@ -1,0 +1,34 @@
+/* Vars
+   ----------------------------------------------------------------- */
+
+/**
+ * Breakpoints
+ */
+$breakpoints: (
+  'xs': 'screen and (max-width: 575.98px)',
+  'sm': 'screen and (min-width: 576px)',
+  'lg': 'screen and (min-width: 1080px)'
+) !default;
+
+/**
+ * Colors
+ */
+$color-ffffff: #fff;
+$color-f7f7f2: #f7f7f2;
+$color-11151c: #11151c;
+$color-2b3278: #2b3278;
+$color-2f3fef: #2f3fef;
+$color-ccd0ff: #ccd0ff;
+$color-ed1c24: #ed1c24;
+
+/**
+ * Transition function
+ */
+$trans-timing-func: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+/**
+ * Z index
+ */
+$z-1000: 1000;
+$z-1020: 1020;
+$z-1030: 1030;

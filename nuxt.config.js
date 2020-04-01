@@ -23,7 +23,17 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~/assets/css/minireset.css'],
+  /*
+   ** Global styles resources
+   */
+  styleResources: {
+    scss: [
+      '~/assets/scss/_vars.scss',
+      '~/assets/scss/_mixins.scss',
+      '~/assets/scss/_base.scss'
+    ]
+  },
   /*
    ** Plugins to load before mounting the App
    */
@@ -45,7 +55,9 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    // Doc: https://github.com/nuxt-community/style-resources-module
+    '@nuxtjs/style-resources'
   ],
   /*
    ** Axios module configuration
