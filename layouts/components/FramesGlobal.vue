@@ -5,6 +5,7 @@
         :class="$style.navButtonWrap"
         @mouseover="handleNavButtonMouseOver"
         @mouseleave="handleNavButtonMouseLeave"
+        @click="handleNavButtonClick"
       >
         <button
           type="button"
@@ -44,14 +45,24 @@ export default {
     isNavMenuOpen: {
       type: Boolean,
       required: true
+    },
+    isMobile: {
+      type: Boolean,
+      required: true
     }
   },
   methods: {
     handleNavButtonMouseOver() {
+      if (this.isMobile) return
       this.$emit('handle-nav-button-mouse-over')
     },
     handleNavButtonMouseLeave() {
+      if (this.isMobile) return
       this.$emit('handle-nav-button-mouse-leave')
+    },
+    handleNavButtonClick() {
+      if (!this.isMobile) return
+      this.$emit('handle-nav-button-click')
     }
   }
 }

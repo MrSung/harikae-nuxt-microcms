@@ -2,13 +2,16 @@
   <div>
     <FramesGlobal
       :is-nav-menu-open="isNavMenuOpen"
+      :is-mobile="isMobile"
       @handle-nav-button-mouse-over="navMenuShow"
       @handle-nav-button-mouse-leave="navMenuHide"
+      @handle-nav-button-click="navMenuClick"
     />
     <nuxt />
     <NavGlobal
       :is-nav-menu-open="isNavMenuOpen"
       :is-dropdown-open="isDropdownOpen"
+      :is-mobile="isMobile"
       @handle-nav-menu-mouse-over="navMenuShow"
       @handle-nav-menu-mouse-leave="navMenuHide"
       @handle-dropdown-click="toggleDropdown"
@@ -27,14 +30,23 @@ export default {
   },
   data: () => ({
     isNavMenuOpen: false,
-    isDropdownOpen: false
+    isDropdownOpen: false,
+    isMobile: false
   }),
+  mounted() {
+    const { userAgent: UA } = window.navigator
+    this.isMobile =
+      UA.includes('iPhone') || (UA.indexOf('Android') && UA.includes('Mobile'))
+  },
   methods: {
     navMenuShow() {
       this.isNavMenuOpen = true
     },
     navMenuHide() {
       this.isNavMenuOpen = false
+    },
+    navMenuClick() {
+      this.isNavMenuOpen = !this.isNavMenuOpen
     },
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen

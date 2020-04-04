@@ -5,7 +5,7 @@
     <div :class="$style.navMenuLogo">
       <img
         src="~/assets/img/harikae-logo-bright.svg"
-        alt=""
+        alt="Harikae"
         :class="[$style.navMenuLogoImg, $style.logoImg]"
         width="200"
         height="32"
@@ -83,13 +83,19 @@ export default {
     isDropdownOpen: {
       type: Boolean,
       required: true
+    },
+    isMobile: {
+      type: Boolean,
+      required: true
     }
   },
   methods: {
     handleNavMenuMouseOver() {
+      if (this.isMobile) return
       this.$emit('handle-nav-menu-mouse-over')
     },
     handleNavMenuMouseLeave() {
+      if (this.isMobile) return
       this.$emit('handle-nav-menu-mouse-leave')
     },
     handleDropdownClick() {
@@ -145,11 +151,11 @@ export default {
 .navMenuUl {
   display: inline-block;
   margin-left: auto;
-  padding: 48px 48px 24px 28px;
+  padding: 48px 8px 24px 28px;
   width: 150px;
 
   @include mq(xs) {
-    padding: 0 16px 16px;
+    padding: 0 8px 16px 16px;
     width: 108px;
   }
 }
