@@ -17,7 +17,9 @@
       @mouseleave="handleNavMenuMouseLeave"
     >
       <li :class="$style.navMenuLi">
-        <a href="about.html" :class="$style.navMenuAnchor">about</a>
+        <nuxt-link to="/about" :class="$style.navMenuAnchor">
+          about
+        </nuxt-link>
       </li>
       <li :class="$style.navMenuLi">
         <a

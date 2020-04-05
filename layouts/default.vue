@@ -7,7 +7,9 @@
       @handle-nav-button-mouse-leave="navMenuHide"
       @handle-nav-button-click="navMenuClick"
     />
-    <nuxt />
+    <main>
+      <nuxt />
+    </main>
     <NavGlobal
       :is-nav-menu-open="isNavMenuOpen"
       :is-dropdown-open="isDropdownOpen"

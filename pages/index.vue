@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" :class="$style.container">
+  <div ref="container">
     <div
       v-swiper:topSlider="swiperOption"
       :class="$style.swiperContainer"

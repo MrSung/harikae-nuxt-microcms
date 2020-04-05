@@ -14,10 +14,20 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:nuxt/recommended'
   ],
-  plugins: [
-    'prettier'
-  ],
+  plugins: ['prettier'],
   // add your custom rules here
   rules: {
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'any',
+          normal: 'never',
+          component: 'always'
+        },
+        svg: 'always',
+        math: 'always'
+      }
+    ]
   }
 }
