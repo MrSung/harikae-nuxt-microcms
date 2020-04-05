@@ -35,10 +35,11 @@ export default {
     isDropdownOpen: false,
     isMobile: false
   }),
+  created() {
+    const deviceType = this.$ua.deviceType()
+    this.isMobile = deviceType === 'smartphone'
+  },
   mounted() {
-    const { userAgent: UA } = window.navigator
-    this.isMobile =
-      UA.includes('iPhone') || (UA.indexOf('Android') && UA.includes('Mobile'))
     this.setMainHeight()
   },
   methods: {

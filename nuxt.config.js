@@ -57,7 +57,9 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // Doc: https://github.com/nuxt-community/style-resources-module
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    // Doc: https://github.com/fukuiretu/nuxt-user-agent
+    'nuxt-user-agent'
   ],
   /*
    ** Axios module configuration
