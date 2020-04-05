@@ -1,6 +1,6 @@
 <template>
   <div>
-    <FramesGlobal
+    <LayoutFrame
       :is-nav-menu-open="isNavMenuOpen"
       :is-mobile="isMobile"
       @handle-nav-button-mouse-over="navMenuShow"
@@ -10,7 +10,7 @@
     <main>
       <nuxt />
     </main>
-    <NavGlobal
+    <LayoutNavigation
       :is-nav-menu-open="isNavMenuOpen"
       :is-dropdown-open="isDropdownOpen"
       :is-mobile="isMobile"
@@ -22,13 +22,13 @@
 </template>
 
 <script>
-import FramesGlobal from './components/FramesGlobal.vue'
-import NavGlobal from './components/NavGlobal'
+import LayoutFrame from '~/components/LayoutFrame.vue'
+import LayoutNavigation from '~/components/LayoutNavigation'
 
 export default {
   components: {
-    FramesGlobal,
-    NavGlobal
+    LayoutFrame,
+    LayoutNavigation
   },
   data: () => ({
     isNavMenuOpen: false,
