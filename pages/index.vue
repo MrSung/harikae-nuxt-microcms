@@ -63,13 +63,18 @@ export default {
     }
   },
   mounted() {
-    const { container } = this.$refs
-    const setContainerHeight = () => {
-      container.style.height = `${window.innerHeight}px`
+    this.setContainerHeight()
+  },
+  methods: {
+    setContainerHeight() {
+      const { container } = this.$refs
+      const _setContainerHeight = () => {
+        container.style.height = `${window.innerHeight}px`
+      }
+      window.addEventListener('load', _setContainerHeight)
+      window.addEventListener('resize', _setContainerHeight)
+      this.isContainerHeightSet = true
     }
-    window.addEventListener('load', setContainerHeight)
-    window.addEventListener('resize', setContainerHeight)
-    this.isContainerHeightSet = true
   }
 }
 </script>
