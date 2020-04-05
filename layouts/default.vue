@@ -7,7 +7,7 @@
       @handle-nav-button-mouse-leave="navMenuHide"
       @handle-nav-button-click="navMenuClick"
     />
-    <main>
+    <main ref="main">
       <nuxt />
     </main>
     <LayoutNavigation
@@ -39,6 +39,7 @@ export default {
     const { userAgent: UA } = window.navigator
     this.isMobile =
       UA.includes('iPhone') || (UA.indexOf('Android') && UA.includes('Mobile'))
+    this.setMainHeight()
   },
   methods: {
     navMenuShow() {
@@ -52,6 +53,14 @@ export default {
     },
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen
+    },
+    setMainHeight() {
+      const { main } = this.$refs
+      const _setMainHeight = () => {
+        main.style.height = `${window.innerHeight}px`
+      }
+      window.addEventListener('load', _setMainHeight)
+      window.addEventListener('resize', _setMainHeight)
     }
   }
 }

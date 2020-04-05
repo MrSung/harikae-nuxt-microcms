@@ -1,25 +1,23 @@
 <template>
-  <div ref="container">
-    <div
-      v-swiper:topSlider="swiperOption"
-      :class="$style.swiperContainer"
-      class="swiper-container"
-    >
-      <!-- Additional required wrapper -->
-      <div :class="$style.swiperWrapper" class="swiper-wrapper">
-        <!-- Slides -->
-        <div
-          v-for="swiperImage in swiperImages"
-          :key="swiperImage.id"
-          :class="$style.swiperSlide"
-          class="swiper-slide"
-        >
-          <a
-            href="javascript:void(0)"
-            :class="$style.topSliderImage"
-            :style="`background-image: url(${swiperImage.src})`"
-          ></a>
-        </div>
+  <div
+    v-swiper:topSlider="swiperOption"
+    :class="$style.swiperContainer"
+    class="swiper-container"
+  >
+    <!-- Additional required wrapper -->
+    <div :class="$style.swiperWrapper" class="swiper-wrapper">
+      <!-- Slides -->
+      <div
+        v-for="swiperImage in swiperImages"
+        :key="swiperImage.id"
+        :class="$style.swiperSlide"
+        class="swiper-slide"
+      >
+        <a
+          href="javascript:void(0)"
+          :class="$style.topSliderImage"
+          :style="`background-image: url(${swiperImage.src})`"
+        ></a>
       </div>
     </div>
   </div>
@@ -48,33 +46,12 @@ export default {
       { id: uniqueId('topSlider_'), src: '/img/top-sample-image-1.jpg' },
       { id: uniqueId('topSlider_'), src: '/img/top-sample-image-2.jpg' },
       { id: uniqueId('topSlider_'), src: '/img/top-sample-image-3.jpg' }
-    ],
-    isContainerHeightSet: false
+    ]
   }),
-  watch: {
-    isContainerHeightSet: {
-      immediate: true,
-      handler(val) {
-        if (!val) return
-        setTimeout(() => {
-          this.topSlider.init()
-        }, 100)
-      }
-    }
-  },
   mounted() {
-    this.setContainerHeight()
-  },
-  methods: {
-    setContainerHeight() {
-      const { container } = this.$refs
-      const _setContainerHeight = () => {
-        container.style.height = `${window.innerHeight}px`
-      }
-      window.addEventListener('load', _setContainerHeight)
-      window.addEventListener('resize', _setContainerHeight)
-      this.isContainerHeightSet = true
-    }
+    setTimeout(() => {
+      this.topSlider.init()
+    }, 100)
   }
 }
 </script>
