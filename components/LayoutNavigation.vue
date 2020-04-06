@@ -51,7 +51,9 @@
         </ul>
       </li>
       <li :class="$style.navMenuLi">
-        <a href="process.html" :class="$style.navMenuAnchor">process</a>
+        <nuxt-link to="/process" :class="$style.navMenuAnchor">
+          process
+        </nuxt-link>
       </li>
       <li :class="[$style.navMenuLi, $style['navMenuLi--last']]">
         <a href="javascript: void(0)" :class="$style.navMenuAnchor">
