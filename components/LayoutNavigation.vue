@@ -34,9 +34,9 @@
         </a>
         <ul :class="$style.navMenuLiUl">
           <li :class="$style.navMenuLiLi">
-            <a href="project1.html" :class="$style.navMenuLiAnchor"
-              >POP CLASSIC</a
-            >
+            <nuxt-link to="/projects/project" :class="$style.navMenuLiAnchor">
+              POP CLASSIC
+            </nuxt-link>
           </li>
           <li :class="$style.navMenuLiLi">
             <a href="javascript: void(0)" :class="$style.navMenuLiAnchor"
