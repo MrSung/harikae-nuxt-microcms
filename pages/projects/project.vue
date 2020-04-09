@@ -157,9 +157,20 @@ export default {
   @include mq(xs) {
     width: 33.3333%;
   }
+
+  &::before {
+    background-color: $color-2f3fef;
+    content: '';
+    display: block;
+  }
 }
 
 .projectThumbLink {
+  transition: opacity 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.3;
+  }
 }
 
 .dualArticles {
