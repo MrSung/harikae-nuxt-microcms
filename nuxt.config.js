@@ -1,5 +1,13 @@
+require('dotenv').config()
+
+const { API_BASE_URL, API_KEY } = process.env
+
 export default {
   mode: 'universal',
+  env: {
+    API_BASE_URL,
+    API_KEY
+  },
   /*
    ** Headers of the page
    */

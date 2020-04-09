@@ -8,15 +8,16 @@
     <div :class="$style.swiperWrapper" class="swiper-wrapper">
       <!-- Slides -->
       <div
-        v-for="swiperImage in swiperImages"
-        :key="swiperImage.id"
+        v-for="obj in topResponseData"
+        :key="obj.id"
         :class="$style.swiperSlide"
         class="swiper-slide"
       >
         <a
-          href="javascript:void(0)"
+          :href="obj.topSliderLink"
           :class="$style.topSliderImage"
-          :style="`background-image: url(${swiperImage.src})`"
+          :style="`background-image: url(${obj.topSliderImage.url})`"
+          @click="handleTopSliderLinkClick($event, obj.topSliderLink)"
         ></a>
       </div>
     </div>
@@ -24,9 +25,16 @@
 </template>
 
 <script>
-import uniqueId from 'lodash/uniqueId'
-
 export default {
+  async asyncData({ $axios }) {
+    const { contents: topResponseData } = await $axios.$get(
+      `${process.env.API_BASE_URL}/top`,
+      {
+        headers: { 'X-API-KEY': process.env.API_KEY }
+      }
+    )
+    return { topResponseData }
+  },
   data: () => ({
     swiperOption: {
       init: false,
@@ -41,17 +49,17 @@ export default {
         enabled: true,
         onlyInViewport: false
       }
-    },
-    swiperImages: [
-      { id: uniqueId('topSlider_'), src: '/img/top-sample-image-1.jpg' },
-      { id: uniqueId('topSlider_'), src: '/img/top-sample-image-2.jpg' },
-      { id: uniqueId('topSlider_'), src: '/img/top-sample-image-3.jpg' }
-    ]
+    }
   }),
   mounted() {
     setTimeout(() => {
       this.topSlider.init()
     }, 100)
+  },
+  methods: {
+    handleTopSliderLinkClick(event, link) {
+      if (link === '#') event.preventDefault()
+    }
   }
 }
 </script>
