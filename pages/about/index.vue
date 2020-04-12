@@ -14,23 +14,18 @@
         <div :class="$style.profileArticles">
           <article :class="$style.profileArticle">
             <h2 :class="$style.profileArticleHeading">
-              Profile
+              {{ aboutContent.aboutHeadingEn }}
             </h2>
             <p :class="$style.profileArticleParagraph">
-              Established in 2016. <br />Chiko Hashimoto who has engaged in
-              textiles, knitting, patterns, and Nao Harikae who has engaged in
-              interior, architectural design have developed a collection.
-              <br />Harikae create the contemporary fashion in which "yarns,
-              fabrics, silhouettes" harmonized while exploring Japanese
-              tradition and way of life.
+              {{ aboutContent.aboutContentEn }}
             </p>
           </article>
           <article :class="$style.profileArticle">
             <h2 :class="$style.profileArticleHeading">
-              プロフィール
+              {{ aboutContent.aboutHeadingJa }}
             </h2>
             <p :class="$style.profileArticleParagraph">
-              2016年、Harikae設立。<br />デザイナーの橋本千子、クリエイティブディレクターで建築家の張替那麻によりデザインを展開。ハリカエは、シルエットの美しさや着心地の良さを感じられるように、編みや織り、染めやプリントによる素材づくり、それを活かすフォルムを大事にしている。<br />さらに持ち主が長く使い続けられるように、じっくり味わえるディテールや着方の自由度の高さを大切にしている。
+              {{ aboutContent.aboutContentJa }}
             </p>
           </article>
         </div>
@@ -43,13 +38,28 @@
 import uniqueId from 'lodash/uniqueId'
 
 export default {
-  data: () => ({
-    profileThumbs: [
-      { id: uniqueId('profileThumb_'), src: '/img/about-thumb.jpg' },
-      { id: uniqueId('profileThumb_'), src: '/img/about-thumb.jpg' },
-      { id: uniqueId('profileThumb_'), src: '/img/about-thumb.jpg' }
-    ]
-  })
+  async asyncData({ $axios }) {
+    const { contents: aboutResponseData } = await $axios.$get(
+      `${process.env.API_BASE_URL}/about`,
+      {
+        headers: { 'X-API-KEY': process.env.API_KEY }
+      }
+    )
+    return { aboutResponseData }
+  },
+  computed: {
+    aboutContent() {
+      return this.aboutResponseData[0]
+    },
+    profileThumbs() {
+      const { url: aboutImageUrl } = this.aboutContent.aboutImage
+      return [
+        { id: uniqueId('profileThumb_'), src: aboutImageUrl },
+        { id: uniqueId('profileThumb_'), src: aboutImageUrl },
+        { id: uniqueId('profileThumb_'), src: aboutImageUrl }
+      ]
+    }
+  }
 }
 </script>
 
