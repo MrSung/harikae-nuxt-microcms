@@ -34,7 +34,7 @@
         </a>
         <ul :class="$style.navMenuLiUl">
           <li :class="$style.navMenuLiLi">
-            <nuxt-link to="/projects/project" :class="$style.navMenuLiAnchor">
+            <nuxt-link to="/project/project" :class="$style.navMenuLiAnchor">
               POP CLASSIC
             </nuxt-link>
           </li>
