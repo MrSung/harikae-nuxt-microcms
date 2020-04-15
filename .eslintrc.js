@@ -17,6 +17,7 @@ module.exports = {
   plugins: ['prettier'],
   // add your custom rules here
   rules: {
+    'vue/no-v-html': 0,
     'vue/html-self-closing': [
       'error',
       {

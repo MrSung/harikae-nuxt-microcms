@@ -16,17 +16,19 @@
             <h2 :class="$style.profileArticleHeading">
               {{ aboutContent.aboutHeadingEn }}
             </h2>
-            <p :class="$style.profileArticleParagraph">
-              {{ aboutContent.aboutContentEn }}
-            </p>
+            <div
+              :class="$style.profileArticleParagraph"
+              v-html="aboutContent.aboutContentEn"
+            ></div>
           </article>
           <article :class="$style.profileArticle">
             <h2 :class="$style.profileArticleHeading">
               {{ aboutContent.aboutHeadingJa }}
             </h2>
-            <p :class="$style.profileArticleParagraph">
-              {{ aboutContent.aboutContentJa }}
-            </p>
+            <div
+              :class="$style.profileArticleParagraph"
+              v-html="aboutContent.aboutContentJa"
+            ></div>
           </article>
         </div>
       </div>
