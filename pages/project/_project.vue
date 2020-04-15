@@ -4,7 +4,7 @@
       <div :class="$style.project">
         <ul :class="$style.projectThumbs">
           <li
-            v-for="(projectItem, index) in projectItems"
+            v-for="(projectItem, index) in projectGalleryImages"
             :key="projectItem.id"
             :class="$style.projectThumb"
           >
@@ -19,26 +19,31 @@
         </ul>
         <div :class="$style.dualArticles">
           <article :class="$style.dualArticle">
-            <h2 :class="$style.dualArticleHeading">POP CLASSIC</h2>
-            <p :class="$style.dualArticleParagraph">
-              Chiko Hashimoto who has engaged in textiles, knitting, patterns,
-              and Nao Harikae who has been engaged in interior, architectural
-              design have developed a collection.<br />
-              Harikae careate the contemporary Japanese tradition and way of
-              life.
-            </p>
+            <h2 :class="$style.dualArticleHeading">
+              {{ currentPathProject.projectHeadingEn }}
+            </h2>
+            <div
+              :class="$style.dualArticleParagraph"
+              v-html="currentPathProject.projectContentEn"
+            ></div>
           </article>
           <article :class="$style.dualArticle">
-            <h2 :class="$style.dualArticleHeading">POP CLASSIC</h2>
-            <p :class="$style.dualArticleParagraph">
-              デザイナーの橋本千子、クリエイティブディレクターで建築家の張替那麻によりデザインを展開。ハリカエは、シルエットの美しさや着心地の良さを感じられるように、編みや織り、染めやプリントによる素材づくり、それを活かすフォルムを大事にしている。<br />
-              されに持ち主が長く使い続けられるように、じっくり味わえるディテールや着方の自由度の高さを大切にしている。
-            </p>
+            <h2 :class="$style.dualArticleHeading">
+              {{ currentPathProject.projectHeadingJa }}
+            </h2>
+            <div
+              :class="$style.dualArticleParagraph"
+              v-html="currentPathProject.projectContentJa"
+            ></div>
           </article>
         </div>
       </div>
     </div>
-    <FsLightbox :toggler="toggler" :slide="slide" :sources="projectItems" />
+    <FsLightbox
+      :toggler="toggler"
+      :slide="slide"
+      :sources="projectGalleryImages"
+    />
   </div>
 </template>
 
@@ -49,27 +54,36 @@ export default {
   components: {
     FsLightbox
   },
+  async asyncData({ $axios }) {
+    const { contents: projectResponseData } = await $axios.$get(
+      `${process.env.API_BASE_URL}/project`,
+      {
+        headers: { 'X-API-KEY': process.env.API_KEY }
+      }
+    )
+    return { projectResponseData }
+  },
   data: () => ({
     toggler: false,
-    slide: 1,
-    projectItems: [
-      '/img/project-pop-classic-00.jpg',
-      '/img/project-pop-classic-01.jpg',
-      '/img/project-pop-classic-02.jpg',
-      '/img/project-pop-classic-03.jpg',
-      '/img/project-pop-classic-04.jpg',
-      '/img/project-pop-classic-05.jpg',
-      '/img/project-pop-classic-06.jpg',
-      '/img/project-pop-classic-07.jpg',
-      '/img/project-pop-classic-08.jpg',
-      '/img/project-pop-classic-09.jpg',
-      '/img/project-pop-classic-10.jpg',
-      '/img/project-pop-classic-11.jpg',
-      '/img/project-pop-classic-12.jpg',
-      '/img/project-pop-classic-13.jpg',
-      '/img/project-pop-classic-14.jpg'
-    ]
+    slide: 1
   }),
+  computed: {
+    currentPathProject() {
+      // TODO: null(404)のときの処理
+      const { project: projectName } = this.$route.params
+      return this.projectResponseData.find(
+        (obj) => obj.projectSlug === projectName
+      )
+    },
+    projectGalleryImages() {
+      const { projectGalleryImages: imagesHtml } = this.currentPathProject
+      return imagesHtml
+        .split('src=')
+        .map((str) => str.match(/['"]http.+['"]/))
+        .filter((item) => item !== null)
+        .map((item) => item[0].match(/http.+(jpe?g|png|gif|webp)/)[0])
+    }
+  },
   methods: {
     openLightboxOnSlide(number) {
       this.slide = number
