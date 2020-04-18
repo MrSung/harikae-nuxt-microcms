@@ -94,6 +94,10 @@ export default {
 </script>
 
 <style lang="scss">
+.fslightbox-container {
+  background: linear-gradient(rgba($color-001247, 0.9), $color-001247 1810%);
+}
+
 .fslightbox-slash {
   transform: rotate(0);
 }
@@ -173,7 +177,7 @@ export default {
   }
 
   &::before {
-    background-color: $color-2f3fef;
+    background-color: $color-001247;
     content: '';
     display: block;
   }
@@ -183,7 +187,7 @@ export default {
   transition: opacity 0.2s ease-in-out;
 
   &:hover {
-    opacity: 0.3;
+    opacity: 0.1;
   }
 }
 
