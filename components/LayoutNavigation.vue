@@ -32,21 +32,18 @@
         >
           project
         </a>
-        <ul :class="$style.navMenuLiUl">
-          <li :class="$style.navMenuLiLi">
-            <nuxt-link to="/project/project" :class="$style.navMenuLiAnchor">
-              POP CLASSIC
+        <ul v-if="navItemsProject" :class="$style.navMenuLiUl">
+          <li
+            v-for="navItemProject in navItemsProject"
+            :key="navItemProject.id"
+            :class="$style.navMenuLiLi"
+          >
+            <nuxt-link
+              :to="`/project/${navItemProject.slug}`"
+              :class="$style.navMenuLiAnchor"
+            >
+              {{ navItemProject.name }}
             </nuxt-link>
-          </li>
-          <li :class="$style.navMenuLiLi">
-            <a href="javascript: void(0)" :class="$style.navMenuLiAnchor"
-              >Project 2</a
-            >
-          </li>
-          <li :class="$style.navMenuLiLi">
-            <a href="javascript: void(0)" :class="$style.navMenuLiAnchor"
-              >Project 3</a
-            >
           </li>
         </ul>
       </li>
@@ -78,6 +75,8 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
   props: {
     isNavMenuOpen: {
@@ -93,7 +92,14 @@ export default {
       required: true
     }
   },
+  computed: {
+    ...mapGetters(['navItemsProject'])
+  },
+  created() {
+    this.init()
+  },
   methods: {
+    ...mapActions(['init']),
     handleNavMenuMouseOver() {
       if (this.isMobile) return
       this.$emit('handle-nav-menu-mouse-over')
