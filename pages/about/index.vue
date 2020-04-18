@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import uniqueId from 'lodash/uniqueId'
+import { nanoid } from 'nanoid'
 
 export default {
   async asyncData({ $axios }) {
@@ -56,9 +56,9 @@ export default {
     profileThumbs() {
       const { url: aboutImageUrl } = this.aboutContent.aboutImage
       return [
-        { id: uniqueId('profileThumb_'), src: aboutImageUrl },
-        { id: uniqueId('profileThumb_'), src: aboutImageUrl },
-        { id: uniqueId('profileThumb_'), src: aboutImageUrl }
+        { id: `profileThumb_${nanoid()}`, src: aboutImageUrl },
+        { id: `profileThumb_${nanoid()}`, src: aboutImageUrl },
+        { id: `profileThumb_${nanoid()}`, src: aboutImageUrl }
       ]
     }
   }

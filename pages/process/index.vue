@@ -19,67 +19,67 @@
 </template>
 
 <script>
-import uniqueId from 'lodash/uniqueId'
+import { nanoid } from 'nanoid'
 
 export default {
   data: () => ({
     processItems: [
       {
-        id: uniqueId('processItem_'),
+        id: `processItem_${nanoid()}`,
         src: 'https://via.placeholder.com/600x450',
         time: '19.11.05',
         title: 'Inspiration of product: 20SS'
       },
       {
-        id: uniqueId('processItem_'),
+        id: `processItem_${nanoid()}`,
         src: 'https://via.placeholder.com/600x450',
         time: '19.11.05',
         title: 'Inspiration of product: 20SS multiple row title comes here'
       },
       {
-        id: uniqueId('processItem_'),
+        id: `processItem_${nanoid()}`,
         src: 'https://via.placeholder.com/600x450',
         time: '19.11.05',
         title: 'Inspiration of product: 20SS'
       },
       {
-        id: uniqueId('processItem_'),
+        id: `processItem_${nanoid()}`,
         src: 'https://via.placeholder.com/600x450',
         time: '19.11.05',
         title: 'Inspiration of product: 20SS'
       },
       {
-        id: uniqueId('processItem_'),
+        id: `processItem_${nanoid()}`,
         src: 'https://via.placeholder.com/600x450',
         time: '19.11.05',
         title: 'Inspiration of product: 20SS multiple row title comes here'
       },
       {
-        id: uniqueId('processItem_'),
+        id: `processItem_${nanoid()}`,
         src: 'https://via.placeholder.com/600x450',
         time: '19.11.05',
         title: 'Inspiration of product: 20SS'
       },
       {
-        id: uniqueId('processItem_'),
+        id: `processItem_${nanoid()}`,
         src: 'https://via.placeholder.com/600x450',
         time: '19.11.05',
         title: 'Inspiration of product: 20SS multiple row title comes here'
       },
       {
-        id: uniqueId('processItem_'),
+        id: `processItem_${nanoid()}`,
         src: 'https://via.placeholder.com/600x450',
         time: '19.11.05',
         title: 'Inspiration of product: 20SS'
       },
       {
-        id: uniqueId('processItem_'),
+        id: `processItem_${nanoid()}`,
         src: 'https://via.placeholder.com/600x450',
         time: '19.11.05',
         title: 'Inspiration of product: 20SS'
       },
       {
-        id: uniqueId('processItem_'),
+        id: `processItem_${nanoid()}`,
         src: 'https://via.placeholder.com/600x450',
         time: '19.11.05',
         title: 'Inspiration of product: 20SS multiple row title comes here'
