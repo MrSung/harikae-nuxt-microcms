@@ -10,7 +10,7 @@
           >
             <nuxt-link
               :to="`/process/${processItem.processSlug}`"
-              :class="$style.processThumbLink"
+              :class="$style.processItemLink"
             >
               <img
                 :src="processItem.processThumbnail.url"
@@ -111,6 +111,16 @@ export default {
     @include mq(sm) {
       margin-right: 20px;
     }
+  }
+}
+
+.processItemLink {
+  & > img {
+    transition: opacity 0.2s $trans-timing-func;
+  }
+
+  &:hover > img {
+    opacity: 0.7;
   }
 }
 
