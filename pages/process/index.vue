@@ -4,13 +4,29 @@
       <div :class="$style.process">
         <ul :class="$style.processList">
           <li
-            v-for="processItem in processItems"
+            v-for="processItem in processResponseData"
             :key="processItem.id"
             :class="$style.processItem"
           >
-            <img :src="processItem.src" alt="" :class="$style.processThumb" />
-            <p :class="$style.processDate">{{ processItem.time }}</p>
-            <h2 :class="$style.processTitle">{{ processItem.title }}</h2>
+            <nuxt-link
+              :to="`/process/${processItem.processSlug}`"
+              :class="$style.processThumbLink"
+            >
+              <img
+                :src="processItem.processThumbnail.url"
+                alt=""
+                :class="$style.processThumb"
+              />
+              <p :class="$style.processDate">
+                {{ processItem.processDate | formatDate }}
+              </p>
+              <h2 :class="$style.processTitle">
+                {{ processItem.processTitle }}
+              </h2>
+              <h3 :class="$style.processTitle">
+                {{ processItem.processSubtitle }}
+              </h3>
+            </nuxt-link>
           </li>
         </ul>
       </div>
@@ -19,73 +35,21 @@
 </template>
 
 <script>
-import { nanoid } from 'nanoid'
-
 export default {
-  data: () => ({
-    processItems: [
+  filters: {
+    formatDate(date) {
+      return new Date(date).toISOString().split('T')[0]
+    }
+  },
+  async asyncData({ $axios }) {
+    const { contents: processResponseData } = await $axios.$get(
+      `${process.env.API_BASE_URL}/process`,
       {
-        id: `processItem_${nanoid()}`,
-        src: 'https://via.placeholder.com/600x450',
-        time: '19.11.05',
-        title: 'Inspiration of product: 20SS'
-      },
-      {
-        id: `processItem_${nanoid()}`,
-        src: 'https://via.placeholder.com/600x450',
-        time: '19.11.05',
-        title: 'Inspiration of product: 20SS multiple row title comes here'
-      },
-      {
-        id: `processItem_${nanoid()}`,
-        src: 'https://via.placeholder.com/600x450',
-        time: '19.11.05',
-        title: 'Inspiration of product: 20SS'
-      },
-      {
-        id: `processItem_${nanoid()}`,
-        src: 'https://via.placeholder.com/600x450',
-        time: '19.11.05',
-        title: 'Inspiration of product: 20SS'
-      },
-      {
-        id: `processItem_${nanoid()}`,
-        src: 'https://via.placeholder.com/600x450',
-        time: '19.11.05',
-        title: 'Inspiration of product: 20SS multiple row title comes here'
-      },
-      {
-        id: `processItem_${nanoid()}`,
-        src: 'https://via.placeholder.com/600x450',
-        time: '19.11.05',
-        title: 'Inspiration of product: 20SS'
-      },
-      {
-        id: `processItem_${nanoid()}`,
-        src: 'https://via.placeholder.com/600x450',
-        time: '19.11.05',
-        title: 'Inspiration of product: 20SS multiple row title comes here'
-      },
-      {
-        id: `processItem_${nanoid()}`,
-        src: 'https://via.placeholder.com/600x450',
-        time: '19.11.05',
-        title: 'Inspiration of product: 20SS'
-      },
-      {
-        id: `processItem_${nanoid()}`,
-        src: 'https://via.placeholder.com/600x450',
-        time: '19.11.05',
-        title: 'Inspiration of product: 20SS'
-      },
-      {
-        id: `processItem_${nanoid()}`,
-        src: 'https://via.placeholder.com/600x450',
-        time: '19.11.05',
-        title: 'Inspiration of product: 20SS multiple row title comes here'
+        headers: { 'X-API-KEY': process.env.API_KEY }
       }
-    ]
-  }),
+    )
+    return { processResponseData }
+  },
   head: () => ({
     bodyAttrs: {
       class: 'page-process'
