@@ -4,30 +4,30 @@
       <div :class="$style.profile">
         <div :class="$style.profileThumbs">
           <div
-            v-for="profileThumb in profileThumbs"
-            :key="profileThumb.id"
+            v-for="aboutThumb in aboutThumbs"
+            :key="aboutThumb.id"
             :class="$style.profileThumb"
           >
-            <img :src="profileThumb.src" alt="" />
+            <img :src="aboutThumb.src" alt="" />
           </div>
         </div>
         <div :class="$style.profileArticles">
           <article :class="$style.profileArticle">
             <h2 :class="$style.profileArticleHeading">
-              {{ aboutContent.aboutHeadingEn }}
+              {{ aboutResponseData.aboutHeadingEn }}
             </h2>
             <div
               :class="$style.profileArticleParagraph"
-              v-html="aboutContent.aboutContentEn"
+              v-html="aboutResponseData.aboutContentEn"
             ></div>
           </article>
           <article :class="$style.profileArticle">
             <h2 :class="$style.profileArticleHeading">
-              {{ aboutContent.aboutHeadingJa }}
+              {{ aboutResponseData.aboutHeadingJa }}
             </h2>
             <div
               :class="$style.profileArticleParagraph"
-              v-html="aboutContent.aboutContentJa"
+              v-html="aboutResponseData.aboutContentJa"
             ></div>
           </article>
         </div>
@@ -41,7 +41,7 @@ import { nanoid } from 'nanoid'
 
 export default {
   async asyncData({ $axios }) {
-    const { contents: aboutResponseData } = await $axios.$get(
+    const aboutResponseData = await $axios.$get(
       `${process.env.API_BASE_URL}/about`,
       {
         headers: { 'X-API-KEY': process.env.API_KEY }
@@ -50,11 +50,8 @@ export default {
     return { aboutResponseData }
   },
   computed: {
-    aboutContent() {
-      return this.aboutResponseData[0]
-    },
-    profileThumbs() {
-      const { url: aboutImageUrl } = this.aboutContent.aboutImage
+    aboutThumbs() {
+      const { url: aboutImageUrl } = this.aboutResponseData.aboutImage
       return [
         { id: `profileThumb_${nanoid()}`, src: aboutImageUrl },
         { id: `profileThumb_${nanoid()}`, src: aboutImageUrl },
