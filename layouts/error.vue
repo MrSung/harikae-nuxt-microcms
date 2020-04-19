@@ -32,10 +32,10 @@
 }
 
 .errorMessage {
-  font-size: 1.5rem;
-  margin-top: 15px;
   color: $color-2b3278;
+  font-size: 1.5rem;
   margin-bottom: 8px;
+  margin-top: 15px;
 }
 
 .errorBottom {

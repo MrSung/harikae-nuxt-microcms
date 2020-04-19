@@ -60,7 +60,7 @@ export default {
 
 <style>
 .page-process {
-  background-color: #f1f1f1;
+  background-color: $color-f1f1f1;
 }
 </style>
 

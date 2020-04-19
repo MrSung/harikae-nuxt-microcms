@@ -1,0 +1,21 @@
+{
+  "version": "0.1",
+  "language": "en-US",
+  "words": [
+    "ESNEXT",
+    "Interop",
+    "downlevel",
+    "languageclient",
+    "lerna",
+    "nospace",
+    "nuxt",
+    "quotemark",
+    "sourcemap",
+    "streetsidesoftware",
+    "tslib",
+    "typechecking",
+    "webview"
+  ],
+  "ignorePaths": ["node_modules", "coverage", "temp"],
+  "ignoreWords": []
+}
