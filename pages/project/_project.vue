@@ -5,7 +5,7 @@
         <ul :class="$style.projectThumbs">
           <li
             v-for="(projectItem, index) in projectGalleryImages"
-            :key="projectItem.id"
+            :key="projectItem.fieldId"
             :class="$style.projectThumb"
           >
             <a
@@ -13,7 +13,7 @@
               :class="$style.projectThumbLink"
               @click.prevent="openLightboxOnSlide(index + 1)"
             >
-              <img :src="projectItem" alt="" />
+              <img :src="projectGalleryImagesUrl[index]" alt="" />
             </a>
           </li>
         </ul>
@@ -42,7 +42,7 @@
     <FsLightbox
       :toggler="toggler"
       :slide="slide"
-      :sources="projectGalleryImages"
+      :sources="projectGalleryImagesUrl"
     />
   </div>
 </template>
@@ -76,12 +76,12 @@ export default {
       )
     },
     projectGalleryImages() {
-      const { projectGalleryImages: imagesHtml } = this.currentPathProject
-      return imagesHtml
-        .split('src=')
-        .map((str) => str.match(/['"]http.+['"]/))
-        .filter((item) => item !== null)
-        .map((item) => item[0].match(/http.+(jpe?g|png|gif|webp)/)[0])
+      return this.currentPathProject.projectGalleryImages
+    },
+    projectGalleryImagesUrl() {
+      return this.projectGalleryImages.map(
+        (image) => image.projectGalleryImage.url
+      )
     }
   },
   methods: {
