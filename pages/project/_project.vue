@@ -5,7 +5,7 @@
         <ul :class="$style.projectThumbs">
           <li
             v-for="(projectItem, index) in projectGalleryImages"
-            :key="projectItem.fieldId"
+            :key="projectItem.id"
             :class="$style.projectThumb"
           >
             <a
@@ -49,6 +49,7 @@
 
 <script>
 import FsLightbox from 'fslightbox-vue'
+import { nanoid } from 'nanoid'
 
 export default {
   components: {
@@ -76,7 +77,10 @@ export default {
       )
     },
     projectGalleryImages() {
-      return this.currentPathProject.projectGalleryImages
+      return this.currentPathProject.projectGalleryImages.map((obj) => ({
+        ...obj,
+        id: nanoid()
+      }))
     },
     projectGalleryImagesUrl() {
       return this.projectGalleryImages.map(
