@@ -12,16 +12,40 @@
           {{ currentPathProcess.processDate | formatDate }}
         </h4>
         <div
-          class="processArticleContent"
-          :class="$style.processArticleContent"
-          v-html="currentPathProcess.processContent"
-        ></div>
+          v-for="processArticleItem in processArticle"
+          :key="processArticleItem.id"
+          :class="$style.processArticleItem"
+        >
+          <img
+            :class="$style.processArticleImage"
+            :src="processArticleItem.processImage1.url"
+            alt=""
+          />
+          <img
+            v-if="processArticleItem.processImage2"
+            :class="$style.processArticleImage"
+            :src="processArticleItem.processImage2.url"
+            alt=""
+          />
+          <div :class="$style.processArticleTexts">
+            <div
+              :class="$style.processArticleText"
+              v-html="processArticleItem.processTextEn"
+            ></div>
+            <div
+              :class="$style.processArticleText"
+              v-html="processArticleItem.processTextJa"
+            ></div>
+          </div>
+        </div>
       </article>
     </div>
   </div>
 </template>
 
 <script>
+import { nanoid } from 'nanoid'
+
 export default {
   filters: {
     formatDate(date) {
@@ -44,6 +68,12 @@ export default {
       return this.processResponseData.find(
         (obj) => obj.processSlug === processName
       )
+    },
+    processArticle() {
+      return this.currentPathProcess.processArticle.map((obj) => ({
+        ...obj,
+        id: nanoid()
+      }))
     }
   },
   head: () => ({
@@ -53,16 +83,6 @@ export default {
   })
 }
 </script>
-
-<style lang="scss">
-.processArticleContent img {
-  margin-bottom: 15px;
-
-  &:not(:first-child) {
-    margin-top: 15px;
-  }
-}
-</style>
 
 <style lang="scss" module>
 .container {
@@ -96,7 +116,33 @@ export default {
   font-size: 13px;
 }
 
-.processArticleContent {
+.processArticleItem {
   padding-top: 15px;
+}
+
+.processArticleImage {
+  margin-bottom: 15px;
+}
+
+.processArticleTexts {
+  @include mq(sm) {
+    display: flex;
+  }
+}
+
+.processArticleText {
+  @include mq(sm) {
+    flex-basis: 50%;
+  }
+
+  &:not(:first-of-type) {
+    @include mq(sm) {
+      margin-left: 16px;
+    }
+
+    @include mq(xs) {
+      margin-top: 28px;
+    }
+  }
 }
 </style>
