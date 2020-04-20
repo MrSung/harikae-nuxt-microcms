@@ -32,17 +32,17 @@
         >
           project
         </a>
-        <ul v-if="navItemsProject" :class="$style.navMenuLiUl">
+        <ul v-if="submenuItemsProject" :class="$style.navMenuLiUl">
           <li
-            v-for="navItemProject in navItemsProject"
-            :key="navItemProject.id"
+            v-for="submenuItem in submenuItemsProject"
+            :key="submenuItem.id"
             :class="$style.navMenuLiLi"
           >
             <nuxt-link
-              :to="`/project/${navItemProject.slug}`"
+              :to="`/project/${submenuItem.submenuItemLink}`"
               :class="$style.navMenuLiAnchor"
             >
-              {{ navItemProject.name }}
+              {{ submenuItem.submenuItemTitle }}
             </nuxt-link>
           </li>
         </ul>
@@ -92,11 +92,17 @@ export default {
       required: true
     }
   },
+  data: () => ({
+    submenuItemsProject: null
+  }),
   computed: {
-    ...mapGetters(['navItemsProject'])
+    ...mapGetters(['submenuItems'])
   },
-  created() {
-    this.init()
+  async created() {
+    await this.init()
+    this.submenuItemsProject = this.submenuItems.filter(
+      (item) => item.slug === 'project'
+    )
   },
   methods: {
     ...mapActions(['init']),
@@ -235,6 +241,7 @@ export default {
   color: $color-ffffff;
   font-size: 12px;
   line-height: 1.1;
+  text-transform: uppercase;
 
   &:hover {
     color: rgba($color-ffffff, 0.4);

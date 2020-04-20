@@ -1,34 +1,41 @@
 import axios from 'axios'
+import { nanoid } from 'nanoid'
 
-const apiProject = `${process.env.API_BASE_URL}/project`
+const apiSubmenu = `${process.env.API_BASE_URL}/submenu`
 
 export const state = () => ({
-  navItemsProject: null
+  submenuItems: null
 })
 
 export const getters = {
-  navItemsProject: (state) => {
-    if (!state.navItemsProject) return null
-    const { contents: projectContents } = state.navItemsProject
-    return projectContents.map((content) => ({
-      id: content.id,
-      slug: content.projectSlug,
-      name: content.projectHeadingEn
+  submenuItems: (state) => {
+    if (!state.submenuItems) return null
+    const { contents: submenuContents } = state.submenuItems
+    const filteredContents = submenuContents.map((content) => ({
+      slug: content.submenuFlag,
+      items: content.submenuItems
     }))
+    return filteredContents.map((submenuItem) =>
+      submenuItem.items.map((item) => ({
+        ...item,
+        id: nanoid(),
+        slug: submenuItem.slug
+      }))
+    )[0]
   }
 }
 
 export const mutations = {
-  setNavItemsProject(state, payload) {
-    state.navItemsProject = payload
+  setSubmenuItems(state, payload) {
+    state.submenuItems = payload
   }
 }
 
 export const actions = {
   async init({ commit }, callback) {
-    const { data: responseData } = await axios.get(apiProject, {
+    const { data: responseData } = await axios.get(apiSubmenu, {
       headers: { 'X-API-KEY': process.env.API_KEY }
     })
-    commit('setNavItemsProject', responseData)
+    commit('setSubmenuItems', responseData)
   }
 }
