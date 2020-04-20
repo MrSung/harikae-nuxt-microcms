@@ -65,7 +65,6 @@ export default {
   },
   computed: {
     currentPathProcess() {
-      // TODO: null(404)のときの処理
       const { process: processName } = this.$route.params
       return this.processResponseData.find(
         (obj) => obj.processSlug === processName

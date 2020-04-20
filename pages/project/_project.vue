@@ -74,7 +74,6 @@ export default {
   }),
   computed: {
     currentPathProject() {
-      // TODO: null(404)のときの処理
       const { project: projectName } = this.$route.params
       return this.projectResponseData.find(
         (obj) => obj.projectSlug === projectName
