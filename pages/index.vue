@@ -8,16 +8,16 @@
     <div :class="$style.swiperWrapper" class="swiper-wrapper">
       <!-- Slides -->
       <div
-        v-for="obj in topResponseData"
-        :key="obj.id"
+        v-for="topItem in topResponseData"
+        :key="topItem.id"
         :class="$style.swiperSlide"
         class="swiper-slide"
       >
         <a
-          :href="obj.topSliderLink"
+          :href="topItem.topSliderLink"
           :class="$style.topSliderImage"
-          :style="`background-image: url(${obj.topSliderImage.url})`"
-          @click="handleTopSliderLinkClick($event, obj.topSliderLink)"
+          :style="`background-image: url(${topItem.topSliderImage.url})`"
+          @click="handleTopSliderLinkClick($event, topItem.topSliderLink)"
         ></a>
       </div>
     </div>
