@@ -67,7 +67,17 @@ export default {
     // Doc: https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
     // Doc: https://github.com/fukuiretu/nuxt-user-agent
-    'nuxt-user-agent'
+    'nuxt-user-agent',
+    // Doc: https://www.npmjs.com/package/nuxt-lazy-load/v/latest
+    [
+      'nuxt-lazy-load',
+      {
+        // These are the default values
+        directiveOnly: true
+        // Default image must be in the static folder
+        // defaultImage: '/images/default-image.jpg',
+      }
+    ]
   ],
   /*
    ** Axios module configuration

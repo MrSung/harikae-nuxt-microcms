@@ -6,14 +6,17 @@
           <li
             v-for="(projectItem, index) in projectGalleryImages"
             :key="projectItem.id"
-            :class="$style.projectThumb"
+            :class="[
+              $style.projectThumb,
+              isMounted && $style['projectThumb--mounted']
+            ]"
           >
             <a
               href="#"
               :class="$style.projectThumbLink"
               @click.prevent="openLightboxOnSlide(index + 1)"
             >
-              <img :src="projectGalleryImagesUrl[index]" alt="" />
+              <img v-lazy-load :src="projectGalleryImagesUrl[index]" alt="" />
             </a>
           </li>
         </ul>
@@ -66,7 +69,8 @@ export default {
   },
   data: () => ({
     toggler: false,
-    slide: 1
+    slide: 1,
+    isMounted: false
   }),
   computed: {
     currentPathProject() {
@@ -87,6 +91,11 @@ export default {
         (image) => image.projectGalleryImage.url
       )
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.isMounted = true
+    }, 100)
   },
   methods: {
     openLightboxOnSlide(number) {
@@ -181,9 +190,13 @@ export default {
   }
 
   &::before {
-    background-color: $color-001247;
+    background-color: $color-ffffff;
     content: '';
     display: block;
+  }
+
+  &--mounted::before {
+    background-color: $color-001247;
   }
 }
 

@@ -17,12 +17,14 @@
           :class="$style.processArticleItem"
         >
           <img
+            v-lazy-load
             :class="$style.processArticleImage"
             :src="processArticleItem.processImage1.url"
             alt=""
           />
           <img
             v-if="processArticleItem.processImage2"
+            v-lazy-load
             :class="$style.processArticleImage"
             :src="processArticleItem.processImage2.url"
             alt=""

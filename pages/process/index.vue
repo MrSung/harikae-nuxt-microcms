@@ -13,6 +13,7 @@
               :class="$style.processItemLink"
             >
               <img
+                v-lazy-load
                 :src="processItem.processThumbnail.url"
                 alt=""
                 :class="$style.processThumb"

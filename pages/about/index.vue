@@ -8,7 +8,7 @@
             :key="aboutThumb.id"
             :class="$style.profileThumb"
           >
-            <img :src="aboutThumb.src" alt="" />
+            <img v-lazy-load :src="aboutThumb.src" alt="" />
           </div>
         </div>
         <div :class="$style.profileArticles">
