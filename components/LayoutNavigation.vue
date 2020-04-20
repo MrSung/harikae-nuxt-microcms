@@ -239,6 +239,7 @@ export default {
 
 .navMenuLiAnchor {
   color: $color-ffffff;
+  display: block;
   font-size: 12px;
   line-height: 1.1;
   text-transform: uppercase;

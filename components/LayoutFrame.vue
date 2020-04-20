@@ -119,6 +119,10 @@ export default {
       top: 26px;
     }
   }
+
+  &--leftTop > a {
+    display: inline-block;
+  }
 }
 
 .navButtonWrap {
