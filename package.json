@@ -4,6 +4,9 @@
   "description": "My fine Nuxt.js project",
   "author": "Sungjoon Park",
   "private": true,
+  "engines": {
+    "node": "12.16.2"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
