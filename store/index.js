@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { nanoid } from 'nanoid'
+import { API_BASE_URL, API_KEY } from '~/config/microcms'
 
-const apiSubmenu = `${process.env.API_BASE_URL}/submenu`
+const apiSubmenu = `${API_BASE_URL}/submenu`
 
 export const state = () => ({
   submenuItems: null
@@ -34,7 +35,7 @@ export const mutations = {
 export const actions = {
   async init({ commit }, callback) {
     const { data: responseData } = await axios.get(apiSubmenu, {
-      headers: { 'X-API-KEY': process.env.API_KEY }
+      headers: { 'X-API-KEY': API_KEY }
     })
     commit('setSubmenuItems', responseData)
   }

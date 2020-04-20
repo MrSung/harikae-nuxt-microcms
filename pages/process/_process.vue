@@ -47,6 +47,7 @@
 
 <script>
 import { nanoid } from 'nanoid'
+import { API_BASE_URL, API_KEY } from '~/config/microcms'
 
 export default {
   filters: {
@@ -56,9 +57,9 @@ export default {
   },
   async asyncData({ $axios }) {
     const { contents: processResponseData } = await $axios.$get(
-      `${process.env.API_BASE_URL}/process`,
+      `${API_BASE_URL}/process`,
       {
-        headers: { 'X-API-KEY': process.env.API_KEY }
+        headers: { 'X-API-KEY': API_KEY }
       }
     )
     return { processResponseData }

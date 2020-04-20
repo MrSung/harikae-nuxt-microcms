@@ -25,12 +25,14 @@
 </template>
 
 <script>
+import { API_BASE_URL, API_KEY } from '~/config/microcms'
+
 export default {
   async asyncData({ $axios }) {
     const { contents: topResponseData } = await $axios.$get(
-      `${process.env.API_BASE_URL}/top`,
+      `${API_BASE_URL}/top`,
       {
-        headers: { 'X-API-KEY': process.env.API_KEY }
+        headers: { 'X-API-KEY': API_KEY }
       }
     )
     return { topResponseData }

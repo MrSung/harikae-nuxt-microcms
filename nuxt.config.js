@@ -1,25 +1,19 @@
-require('dotenv').config()
-
-const { API_BASE_URL, API_KEY } = process.env
+import { SITE_NAME, SITE_DESCRIPTION } from './config/siteMeta'
 
 export default {
   mode: 'universal',
-  env: {
-    API_BASE_URL,
-    API_KEY
-  },
   /*
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: SITE_NAME || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: SITE_DESCRIPTION || ''
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]

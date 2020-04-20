@@ -53,6 +53,7 @@
 <script>
 import FsLightbox from 'fslightbox-vue'
 import { nanoid } from 'nanoid'
+import { API_BASE_URL, API_KEY } from '~/config/microcms'
 
 export default {
   components: {
@@ -60,9 +61,9 @@ export default {
   },
   async asyncData({ $axios }) {
     const { contents: projectResponseData } = await $axios.$get(
-      `${process.env.API_BASE_URL}/project`,
+      `${API_BASE_URL}/project`,
       {
-        headers: { 'X-API-KEY': process.env.API_KEY }
+        headers: { 'X-API-KEY': API_KEY }
       }
     )
     return { projectResponseData }
