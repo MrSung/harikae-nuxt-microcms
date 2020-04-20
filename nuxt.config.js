@@ -36,11 +36,7 @@ export default {
    ** Global styles resources
    */
   styleResources: {
-    scss: [
-      '~/assets/scss/_vars.scss',
-      '~/assets/scss/_mixins.scss',
-      '~/assets/scss/_base.scss'
-    ]
+    scss: ['~/assets/scss/_vars.scss', '~/assets/scss/_mixins.scss']
   },
   /*
    ** Plugins to load before mounting the App

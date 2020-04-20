@@ -66,3 +66,34 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+body {
+  background-color: $color-ffffff;
+  color: $color-2b3278;
+  font-family: Roboto, '游ゴシック', 'Yu Gothic', '游ゴシック体', 'YuGothic',
+    'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'Meiryo UI', 'メイリオ',
+    Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+::selection {
+  background-color: $color-ccd0ff;
+}
+
+a {
+  color: $color-2b3278;
+  text-decoration: none;
+  transition: color 0.2s $trans-timing-func;
+
+  &:hover {
+    color: rgba($color-2b3278, 0.7);
+  }
+}
+
+img {
+  vertical-align: bottom;
+}
+</style>
