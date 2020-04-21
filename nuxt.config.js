@@ -86,6 +86,7 @@ export default {
    ** Generate configuration
    */
   generate: {
-    routes: dynamicRoutes
+    routes: dynamicRoutes,
+    fallback: true
   }
 }

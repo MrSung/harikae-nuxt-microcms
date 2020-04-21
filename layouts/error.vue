@@ -12,13 +12,27 @@
       />
     </svg>
     <p :class="$style.errorMessage">
-      This page could not be found<br />ページが見つかりませんでした
+      <template v-if="error.statusCode === 404">
+        This page could not be found<br />ページが見つかりませんでした
+      </template>
+      <template v-else>There was an error<br />エラーが発生しました</template>
     </p>
     <p :class="$style.errorBottom">
       <nuxt-link to="/">Back to the home page<br />ホームに戻る</nuxt-link>
     </p>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    error: {
+      type: Object,
+      default: null
+    }
+  }
+}
+</script>
 
 <style lang="scss" module>
 .error {
