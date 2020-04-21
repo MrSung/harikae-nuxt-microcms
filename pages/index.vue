@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 import { API_BASE_URL, API_KEY } from '~/config/microcms'
 
 export default {
@@ -53,15 +54,24 @@ export default {
       }
     }
   }),
+  computed: {
+    ...mapState(['topSliderInitialLoad'])
+  },
   mounted() {
-    // Defer the callback to be executed after the next DOM update cycle
-    this.$nextTick(() => {
-      window.addEventListener('load', () => {
-        this.topSlider.init()
+    if (!this.topSliderInitialLoad) {
+      // Defer the callback to be executed after the next DOM update cycle
+      this.$nextTick(() => {
+        window.addEventListener('load', () => {
+          this.topSlider.init()
+          this.setTopSliderInitialLoad(true)
+        })
       })
-    })
+      return
+    }
+    this.topSlider.init()
   },
   methods: {
+    ...mapActions(['setTopSliderInitialLoad']),
     handleTopSliderLinkClick(event, link) {
       if (link === '#') event.preventDefault()
     }

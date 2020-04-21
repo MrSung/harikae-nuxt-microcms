@@ -5,7 +5,8 @@ import { API_BASE_URL, API_KEY } from '~/config/microcms'
 const apiSubmenu = `${API_BASE_URL}/submenu`
 
 export const state = () => ({
-  submenuItems: null
+  submenuItems: null,
+  topSliderInitialLoad: false
 })
 
 export const getters = {
@@ -29,6 +30,9 @@ export const getters = {
 export const mutations = {
   setSubmenuItems(state, payload) {
     state.submenuItems = payload
+  },
+  setTopSliderInitialLoad(state, payload) {
+    state.topSliderInitialLoad = payload
   }
 }
 
@@ -38,5 +42,8 @@ export const actions = {
       headers: { 'X-API-KEY': API_KEY }
     })
     commit('setSubmenuItems', responseData)
+  },
+  setTopSliderInitialLoad({ commit }, payload) {
+    commit('setTopSliderInitialLoad', payload)
   }
 }
