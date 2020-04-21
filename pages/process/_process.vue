@@ -143,7 +143,7 @@ export default {
     }
 
     @include mq(xs) {
-      margin-top: 28px;
+      margin-top: 12px;
     }
   }
 }
