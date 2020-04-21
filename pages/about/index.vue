@@ -31,6 +31,26 @@
             ></div>
           </article>
         </div>
+        <div :class="$style.profileArticles">
+          <article :class="$style.profileArticle">
+            <h2 :class="$style.profileArticleHeading">
+              {{ aboutResponseData.contactHeadingEn }}
+            </h2>
+            <div
+              :class="$style.profileArticleParagraph"
+              v-html="aboutResponseData.contactContentEn"
+            ></div>
+          </article>
+          <article :class="$style.profileArticle">
+            <h2 :class="$style.profileArticleHeading">
+              {{ aboutResponseData.contactHeadingJa }}
+            </h2>
+            <div
+              :class="$style.profileArticleParagraph"
+              v-html="aboutResponseData.contactContentJa"
+            ></div>
+          </article>
+        </div>
       </div>
     </div>
   </div>
