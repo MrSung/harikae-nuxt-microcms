@@ -16,7 +16,12 @@
               :class="$style.projectThumbLink"
               @click.prevent="openLightboxOnSlide(index + 1)"
             >
-              <img v-lazy-load :src="projectGalleryImagesUrl[index]" alt="" />
+              <img
+                ref="galleryImages"
+                v-lazy-load
+                :src="projectGalleryImagesUrl[index]"
+                alt=""
+              />
             </a>
           </li>
         </ul>
@@ -52,6 +57,7 @@
 
 <script>
 import FsLightbox from 'fslightbox-vue'
+import imagesloaded from 'imagesloaded'
 import { nanoid } from 'nanoid'
 import { API_BASE_URL, API_KEY } from '~/config/microcms'
 
@@ -93,9 +99,16 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.isMounted = true
-    }, 100)
+    // Defer the callback to be executed after the next DOM update cycle
+    this.$nextTick(() => {
+      window.addEventListener('load', () => {
+        const { galleryImages } = this.$refs
+        // After all gallery images are loaded
+        imagesloaded(galleryImages, () => {
+          this.isMounted = true
+        })
+      })
+    })
   },
   methods: {
     openLightboxOnSlide(number) {
