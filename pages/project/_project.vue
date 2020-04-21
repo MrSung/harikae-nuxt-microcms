@@ -101,12 +101,10 @@ export default {
   mounted() {
     // Defer the callback to be executed after the next DOM update cycle
     this.$nextTick(() => {
-      window.addEventListener('load', () => {
-        const { galleryImages } = this.$refs
-        // After all gallery images are loaded
-        imagesloaded(galleryImages, () => {
-          this.isMounted = true
-        })
+      const { galleryImages } = this.$refs
+      // After all gallery images are loaded
+      imagesloaded(galleryImages, () => {
+        this.isMounted = true
       })
     })
   },
