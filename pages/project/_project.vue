@@ -113,7 +113,12 @@ export default {
       this.slide = number
       this.toggler = !this.toggler
     }
-  }
+  },
+  head: () => ({
+    bodyAttrs: {
+      class: 'page-project'
+    }
+  })
 }
 </script>
 
