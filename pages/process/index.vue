@@ -61,12 +61,6 @@ export default {
 }
 </script>
 
-<style>
-.page-process {
-  background-color: $color-f1f1f1;
-}
-</style>
-
 <style lang="scss" module>
 .container {
   @include mq(sm) {
