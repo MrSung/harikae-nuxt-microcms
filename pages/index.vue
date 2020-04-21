@@ -54,9 +54,12 @@ export default {
     }
   }),
   mounted() {
-    setTimeout(() => {
-      this.topSlider.init()
-    }, 100)
+    // Defer the callback to be executed after the next DOM update cycle
+    this.$nextTick(() => {
+      window.addEventListener('load', () => {
+        this.topSlider.init()
+      })
+    })
   },
   methods: {
     handleTopSliderLinkClick(event, link) {
