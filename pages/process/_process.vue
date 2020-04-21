@@ -119,11 +119,15 @@ export default {
 }
 
 .processArticleItem {
-  padding-top: 15px;
+  padding-top: 28px;
 }
 
 .processArticleImage {
   margin-bottom: 15px;
+
+  .processArticleItem > &:last-of-type {
+    margin-bottom: 28px;
+  }
 }
 
 .processArticleTexts {
@@ -143,7 +147,7 @@ export default {
     }
 
     @include mq(xs) {
-      margin-top: 12px;
+      margin-top: 28px;
     }
   }
 }
