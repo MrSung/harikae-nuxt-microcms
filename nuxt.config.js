@@ -1,4 +1,5 @@
 import { SITE_NAME, SITE_DESCRIPTION } from './config/siteMeta'
+import dynamicRoutes from './routes/dynamicRoutes'
 
 export default {
   mode: 'universal',
@@ -80,5 +81,11 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  /*
+   ** Generate configuration
+   */
+  generate: {
+    routes: dynamicRoutes
   }
 }
