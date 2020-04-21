@@ -68,6 +68,9 @@ export default {
       }
     ]
   ],
+  server: {
+    port: 3333
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
