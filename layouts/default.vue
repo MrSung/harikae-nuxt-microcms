@@ -57,11 +57,11 @@ export default {
     },
     setMainHeight() {
       const { main } = this.$refs
-      const _setMainHeight = () => {
+      const handleMainHeight = () => {
         main.style.height = `${window.innerHeight}px`
       }
-      window.addEventListener('load', _setMainHeight)
-      window.addEventListener('resize', _setMainHeight)
+      window.addEventListener('load', handleMainHeight)
+      window.addEventListener('resize', handleMainHeight)
     }
   }
 }
