@@ -47,7 +47,7 @@ export default {
 
 .errorMessage {
   color: $color-2b3278;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-bottom: 8px;
   margin-top: 15px;
 }
