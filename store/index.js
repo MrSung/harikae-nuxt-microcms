@@ -6,7 +6,7 @@ const apiSubmenu = `${API_BASE_URL}/submenu`
 
 export const state = () => ({
   submenuItems: null,
-  topSliderInitialLoad: false
+  topSliderLoadedFirstTime: false
 })
 
 export const getters = {
@@ -31,8 +31,8 @@ export const mutations = {
   setSubmenuItems(state, payload) {
     state.submenuItems = payload
   },
-  setTopSliderInitialLoad(state, payload) {
-    state.topSliderInitialLoad = payload
+  setTopSliderLoadedFirstTime(state, payload) {
+    state.topSliderLoadedFirstTime = payload
   }
 }
 
@@ -43,7 +43,7 @@ export const actions = {
     })
     commit('setSubmenuItems', responseData)
   },
-  setTopSliderInitialLoad({ commit }, payload) {
-    commit('setTopSliderInitialLoad', payload)
+  setTopSliderLoadedFirstTime({ commit }, payload) {
+    commit('setTopSliderLoadedFirstTime', payload)
   }
 }

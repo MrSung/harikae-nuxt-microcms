@@ -55,23 +55,23 @@ export default {
     }
   }),
   computed: {
-    ...mapState(['topSliderInitialLoad'])
+    ...mapState(['topSliderLoadedFirstTime'])
   },
   mounted() {
-    if (!this.topSliderInitialLoad) {
-      // Defer the callback to be executed after the next DOM update cycle
-      this.$nextTick(() => {
-        window.addEventListener('load', () => {
-          this.topSlider.init()
-          this.setTopSliderInitialLoad(true)
-        })
-      })
+    if (this.topSliderLoadedFirstTime) {
+      this.topSlider.init()
       return
     }
-    this.topSlider.init()
+    // Defer the callback to be executed after the next DOM update cycle
+    this.$nextTick(() => {
+      window.addEventListener('load', () => {
+        this.topSlider.init()
+        this.setTopSliderLoadedFirstTime(true)
+      })
+    })
   },
   methods: {
-    ...mapActions(['setTopSliderInitialLoad']),
+    ...mapActions(['setTopSliderLoadedFirstTime']),
     handleTopSliderLinkClick(event, link) {
       if (link === '#') event.preventDefault()
     }
