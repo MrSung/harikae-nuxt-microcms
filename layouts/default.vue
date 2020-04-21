@@ -71,9 +71,11 @@ export default {
 body {
   background-color: $color-ffffff;
   color: $color-2b3278;
+  /* stylelint-disable */
   font-family: Roboto, '游ゴシック', 'Yu Gothic', '游ゴシック体', 'YuGothic',
     'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'Meiryo UI', 'メイリオ',
     Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  /* stylelint-enable */
   font-size: 14px;
   letter-spacing: 1px;
   line-height: 1.8;
@@ -111,20 +113,11 @@ img {
   }
 
   .fslightbox-slide-btn-previous-container {
+    /* stylelint-disable */
     cursor: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODciIGhlaWdodD0iMTcxIiB2aWV3Qm94PSIwIDAgODcgMTcxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bGluZSB4MT0iODYuMTQ1NyIgeTE9IjE2OS41NiIgeDI9IjEuMjkyODkiIHkyPSI4NC43MDcxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9IjEuMjkyOTIiIHkxPSI4Ni4xNDU3IiB4Mj0iODYuMTQ1NyIgeTI9IjEuMjkyOTIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4K),
       pointer;
-  }
+    /* stylelint-enable */
 
-  .fslightbox-slide-btn-next-container {
-    cursor: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODciIGhlaWdodD0iMTcxIiB2aWV3Qm94PSIwIDAgODcgMTcxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bGluZSB4MT0iMC43MDcxMzciIHkxPSIxLjI5Mjg5IiB4Mj0iODUuNTYiIHkyPSI4Ni4xNDU3IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9Ijg1LjU1OTkiIHkxPSI4NC43MDcxIiB4Mj0iMC43MDcxMDgiIHkyPSIxNjkuNTYiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4K),
-      pointer;
-  }
-
-  .fslightbox-slide-btn {
-    visibility: hidden;
-  }
-
-  .fslightbox-slide-btn-previous-container {
     @include mq(sm) {
       padding-bottom: 120px;
       padding-right: 120px;
@@ -133,11 +126,20 @@ img {
   }
 
   .fslightbox-slide-btn-next-container {
+    /* stylelint-disable */
+    cursor: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODciIGhlaWdodD0iMTcxIiB2aWV3Qm94PSIwIDAgODcgMTcxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bGluZSB4MT0iMC43MDcxMzciIHkxPSIxLjI5Mjg5IiB4Mj0iODUuNTYiIHkyPSI4Ni4xNDU3IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9Ijg1LjU1OTkiIHkxPSI4NC43MDcxIiB4Mj0iMC43MDcxMDgiIHkyPSIxNjkuNTYiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4K),
+      pointer;
+    /* stylelint-enable */
+
     @include mq(sm) {
       padding-bottom: 120px;
       padding-left: 120px;
       padding-top: 120px;
     }
+  }
+
+  .fslightbox-slide-btn {
+    visibility: hidden;
   }
 }
 

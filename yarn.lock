@@ -9199,6 +9199,25 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
+stylelint-config-recommended@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-2.2.0.tgz#46ab139db4a0e7151fd5f94af155512886c96d3f"
+  integrity sha512-bZ+d4RiNEfmoR74KZtCKmsABdBJr4iXRiCso+6LtMJPw5rd/KnxUWTxht7TbafrTJK1YRjNgnN0iVZaJfc3xJA==
+
+stylelint-config-standard-scss@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-standard-scss/-/stylelint-config-standard-scss-1.1.0.tgz#7eb30588efd3d662bfeb0584527b4a5f3bc40970"
+  integrity sha512-03kuXO1fyeydfyJ/GDngpW2iJFZ20ZsOR1oEbBq+OTLrWZ8063yME5fnPkSkMyEhQ6NVJBG4+/5E0v+AiSFdJQ==
+  dependencies:
+    stylelint-config-standard "~18.3.0"
+
+stylelint-config-standard@~18.3.0:
+  version "18.3.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-18.3.0.tgz#a2a1b788d2cf876c013feaff8ae276117a1befa7"
+  integrity sha512-Tdc/TFeddjjy64LvjPau9SsfVRexmTFqUhnMBrzz07J4p2dVQtmpncRF/o8yZn8ugA3Ut43E6o1GtjX80TFytw==
+  dependencies:
+    stylelint-config-recommended "^2.2.0"
+
 stylelint-declaration-block-no-ignored-properties@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/stylelint-declaration-block-no-ignored-properties/-/stylelint-declaration-block-no-ignored-properties-2.3.0.tgz#98a641a137bf057c97ef3d3c4a848cd339e736da"
@@ -9214,6 +9233,17 @@ stylelint-order@^4.0.0:
     lodash "^4.17.15"
     postcss "^7.0.26"
     postcss-sorting "^5.0.1"
+
+stylelint-scss@^3.17.1:
+  version "3.17.1"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.17.1.tgz#1dc442cc5167be263d3d2ea37fe177b46b925c5d"
+  integrity sha512-KywqqHfK1otZv1QJA4xJDgcPJp1/cP3jnABpbU9gmXOKqKt8cNt27Imsh9JhY133X8D4zDh/38pNq4WjVfUQWQ==
+  dependencies:
+    lodash "^4.17.15"
+    postcss-media-query-parser "^0.2.3"
+    postcss-resolve-nested-selector "^0.1.1"
+    postcss-selector-parser "^6.0.2"
+    postcss-value-parser "^4.0.3"
 
 stylelint-webpack-plugin@^1.2.3:
   version "1.2.3"

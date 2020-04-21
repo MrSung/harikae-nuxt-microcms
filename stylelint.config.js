@@ -1,6 +1,7 @@
 module.exports = {
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
+  extends: 'stylelint-config-standard-scss',
   plugins: [
     'stylelint-declaration-block-no-ignored-properties',
     'stylelint-order'
