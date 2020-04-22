@@ -114,27 +114,39 @@ img {
 
   .fslightbox-slide-btn-previous-container {
     /* stylelint-disable */
-    cursor: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODciIGhlaWdodD0iMTcxIiB2aWV3Qm94PSIwIDAgODcgMTcxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bGluZSB4MT0iODYuMTQ1NyIgeTE9IjE2OS41NiIgeDI9IjEuMjkyODkiIHkyPSI4NC43MDcxIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9IjEuMjkyOTIiIHkxPSI4Ni4xNDU3IiB4Mj0iODYuMTQ1NyIgeTI9IjEuMjkyOTIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4K),
+    cursor: url(https://images.microcms-assets.io/protected/ap-northeast-1:6430d572-35e2-4419-beb4-b9bb9ee16ce7/service/harikae/media/icon_arrow-left.png),
       pointer;
     /* stylelint-enable */
 
     @include mq(sm) {
-      padding-bottom: 120px;
-      padding-right: 120px;
-      padding-top: 120px;
+      padding-bottom: 240px;
+      padding-right: 300px;
+      padding-top: 240px;
+    }
+
+    @include mq(xs) {
+      padding-bottom: 240px;
+      padding-right: 160px;
+      padding-top: 240px;
     }
   }
 
   .fslightbox-slide-btn-next-container {
     /* stylelint-disable */
-    cursor: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODciIGhlaWdodD0iMTcxIiB2aWV3Qm94PSIwIDAgODcgMTcxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8bGluZSB4MT0iMC43MDcxMzciIHkxPSIxLjI5Mjg5IiB4Mj0iODUuNTYiIHkyPSI4Ni4xNDU3IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiLz4KPGxpbmUgeDE9Ijg1LjU1OTkiIHkxPSI4NC43MDcxIiB4Mj0iMC43MDcxMDgiIHkyPSIxNjkuNTYiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4K),
+    cursor: url(https://images.microcms-assets.io/protected/ap-northeast-1:6430d572-35e2-4419-beb4-b9bb9ee16ce7/service/harikae/media/icon_arrow-right.png),
       pointer;
     /* stylelint-enable */
 
     @include mq(sm) {
-      padding-bottom: 120px;
-      padding-left: 120px;
-      padding-top: 120px;
+      padding-bottom: 240px;
+      padding-left: 300px;
+      padding-top: 240px;
+    }
+
+    @include mq(xs) {
+      padding-bottom: 240px;
+      padding-left: 160px;
+      padding-top: 240px;
     }
   }
 
