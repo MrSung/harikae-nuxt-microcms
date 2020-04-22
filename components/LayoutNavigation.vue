@@ -191,6 +191,8 @@ export default {
 }
 
 .navMenuAnchor {
+  @include ellipses;
+
   color: $color-ffffff;
   display: block;
   text-transform: uppercase;
@@ -238,6 +240,8 @@ export default {
 }
 
 .navMenuLiAnchor {
+  @include ellipses;
+
   color: $color-ffffff;
   display: block;
   font-size: 12px;

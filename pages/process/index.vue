@@ -122,7 +122,9 @@ export default {
   }
 
   @include mq(xs) {
+    height: 80vw;
     margin-bottom: 32px;
+    width: 100%;
   }
 
   &::before {
@@ -157,11 +159,15 @@ export default {
 }
 
 .processDate {
+  @include ellipses;
+
   font-size: 10px;
   margin-bottom: 4px;
 }
 
 .processTitle {
+  @include ellipses;
+
   line-height: 1.4;
 }
 </style>
