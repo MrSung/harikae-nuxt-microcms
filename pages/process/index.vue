@@ -6,13 +6,14 @@
           <li
             v-for="processItem in processResponseData"
             :key="processItem.id"
-            :class="$style.processItem"
+            :class="[$style.processItem, $style['processItem--mounted']]"
           >
             <nuxt-link
               :to="`/process/${processItem.processSlug}`"
               :class="$style.processItemLink"
             >
               <img
+                ref="processImages"
                 v-lazy-load
                 :src="processItem.processThumbnail.url"
                 alt=""
@@ -36,6 +37,7 @@
 </template>
 
 <script>
+import imagesloaded from 'imagesloaded'
 import { API_BASE_URL, API_KEY } from '~/config/microcms'
 
 export default {
@@ -56,6 +58,19 @@ export default {
       }
     )
     return { processResponseData }
+  },
+  data: () => ({
+    isMounted: false
+  }),
+  mounted() {
+    // Defer the callback to be executed after the next DOM update cycle
+    this.$nextTick(() => {
+      const { processImages } = this.$refs
+      // After all process images are loaded
+      imagesloaded(processImages, () => {
+        this.isMounted = true
+      })
+    })
   },
   head: () => ({
     bodyAttrs: {
@@ -98,6 +113,8 @@ export default {
 }
 
 .processItem {
+  @include asr(4, 3);
+
   @include mq(sm) {
     margin-bottom: 16px;
     max-width: 300px;
@@ -106,6 +123,16 @@ export default {
 
   @include mq(xs) {
     margin-bottom: 32px;
+  }
+
+  &::before {
+    background-color: $color-ffffff;
+    content: '';
+    display: block;
+  }
+
+  &--mounted::before {
+    background-color: $color-001247;
   }
 
   &:not(:nth-of-type(4n)) {
@@ -121,7 +148,7 @@ export default {
   }
 
   &:hover > img {
-    opacity: 0.7;
+    opacity: 0.1;
   }
 }
 

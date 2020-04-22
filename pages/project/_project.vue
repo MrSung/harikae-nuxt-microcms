@@ -173,7 +173,7 @@ export default {
 }
 
 .projectThumbLink {
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s $trans-timing-func;
 
   &:hover {
     opacity: 0.1;
