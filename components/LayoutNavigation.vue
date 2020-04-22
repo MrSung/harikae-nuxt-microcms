@@ -17,11 +17,6 @@
       @mouseleave="handleNavMenuMouseLeave"
     >
       <li :class="$style.navMenuLi">
-        <nuxt-link to="/about" :class="$style.navMenuAnchor">
-          about
-        </nuxt-link>
-      </li>
-      <li :class="$style.navMenuLi">
         <a
           href="javascript: void(0)"
           :class="[
@@ -50,6 +45,11 @@
       <li :class="$style.navMenuLi">
         <nuxt-link to="/process" :class="$style.navMenuAnchor">
           process
+        </nuxt-link>
+      </li>
+      <li :class="$style.navMenuLi">
+        <nuxt-link to="/about" :class="$style.navMenuAnchor">
+          about
         </nuxt-link>
       </li>
       <li :class="[$style.navMenuLi, $style['navMenuLi--last']]">
