@@ -156,6 +156,6 @@ img {
 }
 
 .page-process {
-  background-color: $color-f1f1f1;
+  background-color: $color-e5e5e5;
 }
 </style>
