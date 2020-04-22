@@ -51,9 +51,13 @@ import { API_BASE_URL, API_KEY } from '~/config/microcms'
 
 export default {
   filters: {
-    formatDate(date) {
-      return new Date(date).toISOString().split('T')[0]
-    }
+    formatDate: (date) =>
+      new Date(date)
+        .toISOString()
+        .split('T')[0]
+        .split('-')
+        .map((str) => str.slice(-2))
+        .join('.')
   },
   async asyncData({ $axios }) {
     const { contents: processResponseData } = await $axios.$get(
@@ -115,7 +119,7 @@ export default {
 }
 
 .processArticleDate {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .processArticleItem {

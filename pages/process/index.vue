@@ -40,9 +40,13 @@ import { API_BASE_URL, API_KEY } from '~/config/microcms'
 
 export default {
   filters: {
-    formatDate(date) {
-      return new Date(date).toISOString().split('T')[0]
-    }
+    formatDate: (date) =>
+      new Date(date)
+        .toISOString()
+        .split('T')[0]
+        .split('-')
+        .map((str) => str.slice(-2))
+        .join('.')
   },
   async asyncData({ $axios }) {
     const { contents: processResponseData } = await $axios.$get(
@@ -122,12 +126,12 @@ export default {
 }
 
 .processThumb {
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .processDate {
-  font-size: 11px;
-  margin-bottom: 1px;
+  font-size: 10px;
+  margin-bottom: 4px;
 }
 
 .processTitle {
