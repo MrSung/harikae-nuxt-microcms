@@ -20,21 +20,21 @@ export default {
   props: {
     headingEn: {
       type: String,
-      required: true
+      required: true,
     },
     contentEn: {
       type: String,
-      required: true
+      required: true,
     },
     headingJa: {
       type: String,
-      required: true
+      required: true,
     },
     contentJa: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>
 

@@ -48,19 +48,19 @@ export default {
         .split('T')[0]
         .split('-')
         .map((str) => str.slice(-2))
-        .join('.')
+        .join('.'),
   },
   async asyncData({ $axios }) {
     const { contents: processResponseData } = await $axios.$get(
       `${API_BASE_URL}/process`,
       {
-        headers: { 'X-API-KEY': API_KEY }
+        headers: { 'X-API-KEY': API_KEY },
       }
     )
     return { processResponseData }
   },
   data: () => ({
-    isMounted: false
+    isMounted: false,
   }),
   mounted() {
     // Defer the callback to be executed after the next DOM update cycle
@@ -74,9 +74,9 @@ export default {
   },
   head: () => ({
     bodyAttrs: {
-      class: 'page-process'
-    }
-  })
+      class: 'page-process',
+    },
+  }),
 }
 </script>
 

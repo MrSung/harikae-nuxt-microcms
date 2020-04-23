@@ -15,9 +15,9 @@ export default {
   props: {
     aboutThumbs: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>
 

@@ -28,12 +28,12 @@ import LayoutNavigation from '~/components/LayoutNavigation'
 export default {
   components: {
     LayoutFrame,
-    LayoutNavigation
+    LayoutNavigation,
   },
   data: () => ({
     isNavMenuOpen: false,
     isDropdownOpen: false,
-    isMobile: false
+    isMobile: false,
   }),
   created() {
     const deviceType = this.$ua.deviceType()
@@ -67,8 +67,8 @@ export default {
       }
       window.addEventListener('load', handleMainHeight)
       window.addEventListener('resize', handleMainHeight)
-    }
-  }
+    },
+  },
 }
 </script>
 

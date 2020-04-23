@@ -6,7 +6,7 @@ const apiSubmenu = `${API_BASE_URL}/submenu`
 
 export const state = () => ({
   submenuItems: null,
-  topSliderLoadedFirstTime: false
+  topSliderLoadedFirstTime: false,
 })
 
 export const getters = {
@@ -15,16 +15,16 @@ export const getters = {
     const { contents: submenuContents } = state.submenuItems
     const filteredContents = submenuContents.map((content) => ({
       slug: content.submenuFlag,
-      items: content.submenuItems
+      items: content.submenuItems,
     }))
     return filteredContents.map((submenuItem) =>
       submenuItem.items.map((item) => ({
         ...item,
         id: nanoid(),
-        slug: submenuItem.slug
+        slug: submenuItem.slug,
       }))
     )[0]
-  }
+  },
 }
 
 export const mutations = {
@@ -33,17 +33,17 @@ export const mutations = {
   },
   setTopSliderLoadedFirstTime(state, payload) {
     state.topSliderLoadedFirstTime = payload
-  }
+  },
 }
 
 export const actions = {
   async init({ commit }) {
     const { data: responseData } = await axios.get(apiSubmenu, {
-      headers: { 'X-API-KEY': API_KEY }
+      headers: { 'X-API-KEY': API_KEY },
     })
     commit('setSubmenuItems', responseData)
   },
   setTopSliderLoadedFirstTime({ commit }, payload) {
     commit('setTopSliderLoadedFirstTime', payload)
-  }
+  },
 }

@@ -11,7 +11,7 @@
           type="button"
           :class="[
             $style.navButton,
-            isNavMenuOpen && $style['navButton--navMenuOpen']
+            isNavMenuOpen && $style['navButton--navMenuOpen'],
           ]"
         >
           <span :class="$style.navButtonBar"></span>
@@ -47,12 +47,12 @@ export default {
   props: {
     isNavMenuOpen: {
       type: Boolean,
-      required: true
+      required: true,
     },
     isMobile: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     handleNavButtonMouseOver() {
@@ -66,8 +66,8 @@ export default {
     handleNavButtonClick() {
       if (!this.isMobile) return
       this.$emit('handle-nav-button-click')
-    }
-  }
+    },
+  },
 }
 </script>
 

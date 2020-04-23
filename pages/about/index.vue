@@ -29,11 +29,11 @@ import PageAboutProfileArticles from '~/components/PageAboutProfileArticles.vue'
 export default {
   components: {
     PageAboutThumbs,
-    PageAboutProfileArticles
+    PageAboutProfileArticles,
   },
   async asyncData({ $axios }) {
     const aboutResponseData = await $axios.$get(`${API_BASE_URL}/about`, {
-      headers: { 'X-API-KEY': API_KEY }
+      headers: { 'X-API-KEY': API_KEY },
     })
     return { aboutResponseData }
   },
@@ -43,10 +43,10 @@ export default {
       return [
         { id: `profileThumb_${nanoid()}`, src: aboutImageUrl },
         { id: `profileThumb_${nanoid()}`, src: aboutImageUrl },
-        { id: `profileThumb_${nanoid()}`, src: aboutImageUrl }
+        { id: `profileThumb_${nanoid()}`, src: aboutImageUrl },
       ]
-    }
-  }
+    },
+  },
 }
 </script>
 

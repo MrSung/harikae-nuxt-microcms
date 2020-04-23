@@ -8,7 +8,7 @@
             :key="projectItem.id"
             :class="[
               $style.projectThumb,
-              isMounted && $style['projectThumb--mounted']
+              isMounted && $style['projectThumb--mounted'],
             ]"
           >
             <a
@@ -63,13 +63,13 @@ import { API_BASE_URL, API_KEY } from '~/config/microcms'
 
 export default {
   components: {
-    FsLightbox
+    FsLightbox,
   },
   async asyncData({ $axios }) {
     const { contents: projectResponseData } = await $axios.$get(
       `${API_BASE_URL}/project`,
       {
-        headers: { 'X-API-KEY': API_KEY }
+        headers: { 'X-API-KEY': API_KEY },
       }
     )
     return { projectResponseData }
@@ -77,7 +77,7 @@ export default {
   data: () => ({
     toggler: false,
     slide: 1,
-    isMounted: false
+    isMounted: false,
   }),
   computed: {
     currentPathProject() {
@@ -89,14 +89,14 @@ export default {
     projectGalleryImages() {
       return this.currentPathProject.projectGalleryImages.map((obj) => ({
         ...obj,
-        id: nanoid()
+        id: nanoid(),
       }))
     },
     projectGalleryImagesUrl() {
       return this.projectGalleryImages.map(
         (image) => image.projectGalleryImage.url
       )
-    }
+    },
   },
   mounted() {
     // Defer the callback to be executed after the next DOM update cycle
@@ -112,13 +112,13 @@ export default {
     openLightboxOnSlide(number) {
       this.slide = number
       this.toggler = !this.toggler
-    }
+    },
   },
   head: () => ({
     bodyAttrs: {
-      class: 'page-project'
-    }
-  })
+      class: 'page-project',
+    },
+  }),
 }
 </script>
 

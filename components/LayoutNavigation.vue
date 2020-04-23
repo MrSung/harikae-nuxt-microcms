@@ -21,7 +21,7 @@
           href="javascript: void(0)"
           :class="[
             $style.navMenuAnchor,
-            isDropdownOpen && $style['navMenuAnchor--dropdownOpen']
+            isDropdownOpen && $style['navMenuAnchor--dropdownOpen'],
           ]"
           @click="handleDropdownClick"
         >
@@ -81,22 +81,22 @@ export default {
   props: {
     isNavMenuOpen: {
       type: Boolean,
-      required: true
+      required: true,
     },
     isDropdownOpen: {
       type: Boolean,
-      required: true
+      required: true,
     },
     isMobile: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
-    submenuItemsProject: null
+    submenuItemsProject: null,
   }),
   computed: {
-    ...mapGetters(['submenuItems'])
+    ...mapGetters(['submenuItems']),
   },
   async created() {
     await this.init()
@@ -116,8 +116,8 @@ export default {
     },
     handleDropdownClick() {
       this.$emit('handle-dropdown-click')
-    }
-  }
+    },
+  },
 }
 </script>
 

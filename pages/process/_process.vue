@@ -51,7 +51,7 @@ export default {
     const { contents: processResponseData } = await $axios.$get(
       `${API_BASE_URL}/process`,
       {
-        headers: { 'X-API-KEY': API_KEY }
+        headers: { 'X-API-KEY': API_KEY },
       }
     )
     return { processResponseData }
@@ -66,15 +66,15 @@ export default {
     processArticle() {
       return this.currentPathProcess.processArticle.map((obj) => ({
         ...obj,
-        id: nanoid()
+        id: nanoid(),
       }))
-    }
+    },
   },
   head: () => ({
     bodyAttrs: {
-      class: 'page-process'
-    }
-  })
+      class: 'page-process',
+    },
+  }),
 }
 </script>
 

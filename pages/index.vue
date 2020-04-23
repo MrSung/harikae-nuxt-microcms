@@ -24,13 +24,13 @@ import PageIndexSlide from '~/components/PageIndexSlide.vue'
 
 export default {
   components: {
-    PageIndexSlide
+    PageIndexSlide,
   },
   async asyncData({ $axios }) {
     const { contents: topResponseData } = await $axios.$get(
       `${API_BASE_URL}/top`,
       {
-        headers: { 'X-API-KEY': API_KEY }
+        headers: { 'X-API-KEY': API_KEY },
       }
     )
     return { topResponseData }
@@ -43,16 +43,16 @@ export default {
       loop: true,
       speed: 800,
       mousewheel: {
-        invert: false
+        invert: false,
       },
       keyboard: {
         enabled: true,
-        onlyInViewport: false
-      }
-    }
+        onlyInViewport: false,
+      },
+    },
   }),
   computed: {
-    ...mapState(['topSliderLoadedFirstTime'])
+    ...mapState(['topSliderLoadedFirstTime']),
   },
   mounted() {
     if (this.topSliderLoadedFirstTime) {
@@ -71,8 +71,8 @@ export default {
     ...mapActions(['setTopSliderLoadedFirstTime']),
     handleTopSliderLinkClick(event, link) {
       if (link === '#') event.preventDefault()
-    }
-  }
+    },
+  },
 }
 </script>
 
