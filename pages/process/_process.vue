@@ -8,35 +8,18 @@
         <h3 :class="$style.processArticleSubtitle">
           {{ currentPathProcess.processSubtitle }}
         </h3>
-        <div
+        <PageSubProcessArticleItem
           v-for="processArticleItem in processArticle"
           :key="processArticleItem.id"
-          :class="$style.processArticleItem"
-        >
-          <img
-            v-lazy-load
-            :class="$style.processArticleImage"
-            :src="processArticleItem.processImage1.url"
-            alt=""
-          />
-          <img
-            v-if="processArticleItem.processImage2"
-            v-lazy-load
-            :class="$style.processArticleImage"
-            :src="processArticleItem.processImage2.url"
-            alt=""
-          />
-          <div :class="$style.processArticleTexts">
-            <div
-              :class="$style.processArticleText"
-              v-html="processArticleItem.processTextEn"
-            ></div>
-            <div
-              :class="$style.processArticleText"
-              v-html="processArticleItem.processTextJa"
-            ></div>
-          </div>
-        </div>
+          :process-image-url-first="processArticleItem.processImage1.url"
+          :process-image-url-second="
+            processArticleItem.processImage2
+              ? processArticleItem.processImage2.url
+              : ''
+          "
+          :process-text-en="processArticleItem.processTextEn"
+          :process-text-ja="processArticleItem.processTextJa"
+        />
       </article>
     </div>
   </div>
@@ -45,8 +28,12 @@
 <script>
 import { nanoid } from 'nanoid'
 import { API_BASE_URL, API_KEY } from '~/config/microcms'
+import PageSubProcessArticleItem from '~/components/PageSubProcessArticleItem.vue'
 
 export default {
+  components: {
+    PageSubProcessArticleItem,
+  },
   async asyncData({ $axios }) {
     const { contents: processResponseData } = await $axios.$get(
       `${API_BASE_URL}/process`,
@@ -104,39 +91,5 @@ export default {
 
 .processArticleSubtitle {
   font-size: 14px;
-}
-
-.processArticleItem {
-  padding-top: 28px;
-}
-
-.processArticleImage {
-  margin-bottom: 15px;
-
-  .processArticleItem > &:last-of-type {
-    margin-bottom: 28px;
-  }
-}
-
-.processArticleTexts {
-  @include mq(sm) {
-    display: flex;
-  }
-}
-
-.processArticleText {
-  @include mq(sm) {
-    flex-basis: 50%;
-  }
-
-  &:not(:first-of-type) {
-    @include mq(sm) {
-      margin-left: 16px;
-    }
-
-    @include mq(xs) {
-      margin-top: 28px;
-    }
-  }
 }
 </style>
