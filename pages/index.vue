@@ -11,6 +11,7 @@
         v-for="topItem in topResponseData"
         :key="topItem.id"
         :top-item="topItem"
+        @handle-top-slider-link-click="handleTopSliderLinkClick"
       />
     </div>
   </div>

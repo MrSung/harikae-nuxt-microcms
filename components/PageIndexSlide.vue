@@ -16,6 +16,11 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+    handleTopSliderLinkClick(event, sliderLink) {
+      this.$emit('handle-top-slider-link-click', event, sliderLink)
+    }
   }
 }
 </script>
