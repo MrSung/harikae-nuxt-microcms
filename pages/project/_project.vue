@@ -25,26 +25,12 @@
             </a>
           </li>
         </ul>
-        <div :class="$style.dualArticles">
-          <article :class="$style.dualArticle">
-            <h2 :class="$style.dualArticleHeading">
-              {{ currentPathProject.projectHeadingEn }}
-            </h2>
-            <div
-              :class="$style.dualArticleParagraph"
-              v-html="currentPathProject.projectContentEn"
-            ></div>
-          </article>
-          <article :class="$style.dualArticle">
-            <h2 :class="$style.dualArticleHeading">
-              {{ currentPathProject.projectHeadingJa }}
-            </h2>
-            <div
-              :class="$style.dualArticleParagraph"
-              v-html="currentPathProject.projectContentJa"
-            ></div>
-          </article>
-        </div>
+        <PageSubProjectArticles
+          :project-heading-en="currentPathProject.projectHeadingEn"
+          :project-content-en="currentPathProject.projectContentEn"
+          :project-heading-ja="currentPathProject.projectHeadingJa"
+          :project-content-ja="currentPathProject.projectContentJa"
+        />
       </div>
     </div>
     <FsLightbox
@@ -60,9 +46,11 @@ import FsLightbox from 'fslightbox-vue'
 import imagesloaded from 'imagesloaded'
 import { nanoid } from 'nanoid'
 import { API_BASE_URL, API_KEY } from '~/config/microcms'
+import PageSubProjectArticles from '~/components/PageSubProjectArticles.vue'
 
 export default {
   components: {
+    PageSubProjectArticles,
     FsLightbox,
   },
   async asyncData({ $axios }) {
@@ -178,33 +166,5 @@ export default {
   &:hover {
     opacity: 0.1;
   }
-}
-
-.dualArticles {
-  padding-top: 32px;
-
-  @include mq(sm) {
-    display: flex;
-  }
-}
-
-.dualArticle {
-  @include mq(sm) {
-    flex-basis: 50%;
-  }
-
-  &:not(:first-of-type) {
-    @include mq(sm) {
-      margin-left: 16px;
-    }
-
-    @include mq(xs) {
-      margin-top: 28px;
-    }
-  }
-}
-
-.dualArticleHeading {
-  margin-bottom: 0.6em;
 }
 </style>
