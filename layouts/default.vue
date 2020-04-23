@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import LayoutFrame from '~/components/LayoutFrame.vue'
 import LayoutNavigation from '~/components/LayoutNavigation'
 
@@ -46,8 +47,14 @@ export default {
   },
   mounted() {
     this.setMainHeight()
+    this.$nextTick(() => {
+      window.addEventListener('load', () => {
+        this.setLoadedFirstTime(true)
+      })
+    })
   },
   methods: {
+    ...mapActions(['setLoadedFirstTime']),
     navMenuShow() {
       this.isNavMenuOpen = true
     },

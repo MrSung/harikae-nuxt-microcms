@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState } from 'vuex'
 import { API_BASE_URL, API_KEY } from '~/config/microcms'
 import PageIndexSlide from '~/components/PageIndexSlide.vue'
 
@@ -52,10 +52,10 @@ export default {
     },
   }),
   computed: {
-    ...mapState(['topSliderLoadedFirstTime']),
+    ...mapState(['loadedFirstTime']),
   },
   mounted() {
-    if (this.topSliderLoadedFirstTime) {
+    if (this.loadedFirstTime) {
       this.topSlider.init()
       return
     }
@@ -63,12 +63,10 @@ export default {
     this.$nextTick(() => {
       window.addEventListener('load', () => {
         this.topSlider.init()
-        this.setTopSliderLoadedFirstTime(true)
       })
     })
   },
   methods: {
-    ...mapActions(['setTopSliderLoadedFirstTime']),
     handleTopSliderLinkClick(event, link) {
       if (link === '#') event.preventDefault()
     },
