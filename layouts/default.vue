@@ -39,6 +39,11 @@ export default {
     const deviceType = this.$ua.deviceType()
     this.isMobile = deviceType === 'smartphone'
   },
+  beforeMount() {
+    if (this.isMobile) {
+      document.body.setAttribute('data-ua-smartphone', '')
+    }
+  },
   mounted() {
     this.setMainHeight()
   },
@@ -68,6 +73,8 @@ export default {
 </script>
 
 <style lang="scss">
+// Base
+// ----------------------------------------
 body {
   background-color: $color-ffffff;
   color: $color-2b3278;
@@ -99,6 +106,8 @@ img {
   vertical-align: bottom;
 }
 
+// Page - Project
+// ----------------------------------------
 .page-project {
   .fslightbox-container {
     background: linear-gradient(rgba($color-001247, 0.9), $color-001247 1810%);
@@ -123,12 +132,18 @@ img {
       padding-right: 300px;
       padding-top: 240px;
     }
+  }
 
+  &:not([data-ua-smartphone]) .fslightbox-slide-btn-previous-container {
     @include mq(xs) {
       padding-bottom: 240px;
       padding-right: 160px;
       padding-top: 240px;
     }
+  }
+
+  &[data-ua-smartphone] .fslightbox-slide-btn-previous-container {
+    display: none;
   }
 
   .fslightbox-slide-btn-next-container {
@@ -142,7 +157,9 @@ img {
       padding-left: 300px;
       padding-top: 240px;
     }
+  }
 
+  &:not([data-ua-smartphone]) .fslightbox-slide-btn-next-container {
     @include mq(xs) {
       padding-bottom: 240px;
       padding-left: 160px;
@@ -150,11 +167,17 @@ img {
     }
   }
 
+  &[data-ua-smartphone] .fslightbox-slide-btn-next-container {
+    display: none;
+  }
+
   .fslightbox-slide-btn {
     visibility: hidden;
   }
 }
 
+// Page - Process
+// ----------------------------------------
 .page-process {
   background-color: $color-e5e5e5;
 }
