@@ -133,20 +133,12 @@ img {
     cursor: url(https://images.microcms-assets.io/protected/ap-northeast-1:6430d572-35e2-4419-beb4-b9bb9ee16ce7/service/harikae/media/icon_arrow-left.png),
       pointer;
     /* stylelint-enable */
-
-    @include mq(sm) {
-      padding-bottom: 240px;
-      padding-right: 300px;
-      padding-top: 240px;
-    }
   }
 
   &:not([data-ua-smartphone]) .fslightbox-slide-btn-previous-container {
-    @include mq(xs) {
-      padding-bottom: 240px;
-      padding-right: 160px;
-      padding-top: 240px;
-    }
+    height: calc(100vh - 80px);
+    padding: 0;
+    width: 50%;
   }
 
   &[data-ua-smartphone] .fslightbox-slide-btn-previous-container {
@@ -158,20 +150,12 @@ img {
     cursor: url(https://images.microcms-assets.io/protected/ap-northeast-1:6430d572-35e2-4419-beb4-b9bb9ee16ce7/service/harikae/media/icon_arrow-right.png),
       pointer;
     /* stylelint-enable */
-
-    @include mq(sm) {
-      padding-bottom: 240px;
-      padding-left: 300px;
-      padding-top: 240px;
-    }
   }
 
   &:not([data-ua-smartphone]) .fslightbox-slide-btn-next-container {
-    @include mq(xs) {
-      padding-bottom: 240px;
-      padding-left: 160px;
-      padding-top: 240px;
-    }
+    height: calc(100vh - 80px);
+    padding: 0;
+    width: 50%;
   }
 
   &[data-ua-smartphone] .fslightbox-slide-btn-next-container {
