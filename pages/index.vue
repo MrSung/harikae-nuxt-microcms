@@ -7,19 +7,11 @@
     <!-- Additional required wrapper -->
     <div :class="$style.swiperWrapper" class="swiper-wrapper">
       <!-- Slides -->
-      <div
+      <PageIndexSlide
         v-for="topItem in topResponseData"
         :key="topItem.id"
-        :class="$style.swiperSlide"
-        class="swiper-slide"
-      >
-        <a
-          :href="topItem.topSliderLink"
-          :class="$style.topSliderImage"
-          :style="`background-image: url(${topItem.topSliderImage.url})`"
-          @click="handleTopSliderLinkClick($event, topItem.topSliderLink)"
-        ></a>
-      </div>
+        :top-item="topItem"
+      />
     </div>
   </div>
 </template>
@@ -27,8 +19,12 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import { API_BASE_URL, API_KEY } from '~/config/microcms'
+import PageIndexSlide from '~/components/PageIndexSlide.vue'
 
 export default {
+  components: {
+    PageIndexSlide
+  },
   async asyncData({ $axios }) {
     const { contents: topResponseData } = await $axios.$get(
       `${API_BASE_URL}/top`,
@@ -84,18 +80,5 @@ export default {
 .swiperWrapper {
   height: 100%;
   width: 100%;
-}
-
-.topSliderImage {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: block;
-  height: 100%;
-  width: 100%;
-
-  @include mq(lg) {
-    background-size: contain;
-  }
 }
 </style>
