@@ -46,13 +46,17 @@ export default {
 <style lang="scss" module>
 .processArticleItem {
   padding-top: 28px;
+
+  & + & {
+    padding-top: 48px;
+  }
 }
 
 .processArticleImage {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 
   .processArticleItem > &:last-of-type {
-    margin-bottom: 28px;
+    margin-bottom: 48px;
   }
 }
 
