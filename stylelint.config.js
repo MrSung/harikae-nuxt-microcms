@@ -4,7 +4,7 @@ module.exports = {
   extends: 'stylelint-config-standard-scss',
   plugins: [
     'stylelint-declaration-block-no-ignored-properties',
-    'stylelint-order'
+    'stylelint-order',
   ],
   rules: {
     'declaration-block-no-shorthand-property-overrides': true,
@@ -12,6 +12,6 @@ module.exports = {
     'font-family-no-missing-generic-family-keyword': true,
     'order/properties-alphabetical-order': true,
     'plugin/declaration-block-no-ignored-properties': true,
-    'selector-pseudo-element-colon-notation': 'double'
-  }
+    'selector-pseudo-element-colon-notation': 'double',
+  },
 }

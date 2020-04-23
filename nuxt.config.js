@@ -14,10 +14,10 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: SITE_DESCRIPTION || ''
-      }
+        content: SITE_DESCRIPTION || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
@@ -31,7 +31,7 @@ export default {
    ** Global styles resources
    */
   styleResources: {
-    scss: ['~/assets/scss/_vars.scss', '~/assets/scss/_mixins.scss']
+    scss: ['~/assets/scss/_vars.scss', '~/assets/scss/_mixins.scss'],
   },
   /*
    ** Plugins to load before mounting the App
@@ -44,7 +44,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
   ],
   /*
    ** Nuxt.js modules
@@ -62,14 +62,14 @@ export default {
       'nuxt-lazy-load',
       {
         // These are the default values
-        directiveOnly: true
+        directiveOnly: true,
         // Default image must be in the static folder
         // defaultImage: '/images/default-image.jpg',
-      }
-    ]
+      },
+    ],
   ],
   server: {
-    port: 3333
+    port: 3333,
   },
   /*
    ** Axios module configuration
@@ -83,13 +83,13 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {},
   },
   /*
    ** Generate configuration
    */
   generate: {
     routes: dynamicRoutes,
-    fallback: true
-  }
+    fallback: true,
+  },
 }
