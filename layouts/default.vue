@@ -179,6 +179,6 @@ img {
 // Page - Process
 // ----------------------------------------
 .page-process {
-  background-color: $color-cccccc;
+  background-color: $color-d9d9d9;
 }
 </style>

@@ -7,14 +7,14 @@
 $breakpoints: (
   'xs': 'screen and (max-width: 575.98px)',
   'sm': 'screen and (min-width: 576px)',
-  'lg': 'screen and (min-width: 1080px)'
+  'lg': 'screen and (min-width: 1080px)',
 ) !default;
 
 /**
  * Colors
  */
 $color-ffffff: #fff;
-$color-cccccc: #ccc;
+$color-d9d9d9: #d9d9d9;
 $color-001247: #001247;
 $color-11151c: #11151c;
 $color-2b3278: #2b3278;
