@@ -116,6 +116,7 @@ export default {
   @include asr(4, 3);
 
   @include mq(sm) {
+    height: 272px;
     margin-bottom: 16px;
     max-width: 300px;
     width: 280px;

@@ -245,7 +245,7 @@ export default {
   color: $color-ffffff;
   display: block;
   font-size: 12px;
-  line-height: 1.1;
+  line-height: 1.4;
   text-transform: uppercase;
 
   &:hover {
