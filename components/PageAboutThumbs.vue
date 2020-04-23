@@ -14,7 +14,7 @@
 export default {
   props: {
     aboutThumbs: {
-      type: Object,
+      type: Array,
       required: true
     }
   }
