@@ -2,55 +2,19 @@
   <div :class="$style.container">
     <div :class="$style.containerInner">
       <div :class="$style.profile">
-        <div :class="$style.profileThumbs">
-          <div
-            v-for="aboutThumb in aboutThumbs"
-            :key="aboutThumb.id"
-            :class="$style.profileThumb"
-          >
-            <img v-lazy-load :src="aboutThumb.src" alt="" />
-          </div>
-        </div>
-        <div :class="$style.profileArticles">
-          <article :class="$style.profileArticle">
-            <h2 :class="$style.profileArticleHeading">
-              {{ aboutResponseData.aboutHeadingEn }}
-            </h2>
-            <div
-              :class="$style.profileArticleParagraph"
-              v-html="aboutResponseData.aboutContentEn"
-            ></div>
-          </article>
-          <article :class="$style.profileArticle">
-            <h2 :class="$style.profileArticleHeading">
-              {{ aboutResponseData.aboutHeadingJa }}
-            </h2>
-            <div
-              :class="$style.profileArticleParagraph"
-              v-html="aboutResponseData.aboutContentJa"
-            ></div>
-          </article>
-        </div>
-        <div :class="$style.profileArticles">
-          <article :class="$style.profileArticle">
-            <h2 :class="$style.profileArticleHeading">
-              {{ aboutResponseData.contactHeadingEn }}
-            </h2>
-            <div
-              :class="$style.profileArticleParagraph"
-              v-html="aboutResponseData.contactContentEn"
-            ></div>
-          </article>
-          <article :class="$style.profileArticle">
-            <h2 :class="$style.profileArticleHeading">
-              {{ aboutResponseData.contactHeadingJa }}
-            </h2>
-            <div
-              :class="$style.profileArticleParagraph"
-              v-html="aboutResponseData.contactContentJa"
-            ></div>
-          </article>
-        </div>
+        <PageAboutThumbs :about-thumbs="aboutThumbs" />
+        <PageAboutProfileArticles
+          :heading-en="aboutResponseData.aboutHeadingEn"
+          :content-en="aboutResponseData.aboutContentEn"
+          :heading-ja="aboutResponseData.aboutHeadingJa"
+          :content-ja="aboutResponseData.aboutContentJa"
+        />
+        <PageAboutProfileArticles
+          :heading-en="aboutResponseData.contactHeadingEn"
+          :content-en="aboutResponseData.contactContentEn"
+          :heading-ja="aboutResponseData.contactHeadingJa"
+          :content-ja="aboutResponseData.contactContentJa"
+        />
       </div>
     </div>
   </div>
@@ -59,8 +23,14 @@
 <script>
 import { nanoid } from 'nanoid'
 import { API_BASE_URL, API_KEY } from '~/config/microcms'
+import PageAboutThumbs from '~/components/PageAboutThumbs.vue'
+import PageAboutProfileArticles from '~/components/PageAboutProfileArticles.vue'
 
 export default {
+  components: {
+    PageAboutThumbs,
+    PageAboutProfileArticles
+  },
   async asyncData({ $axios }) {
     const aboutResponseData = await $axios.$get(`${API_BASE_URL}/about`, {
       headers: { 'X-API-KEY': API_KEY }
@@ -98,62 +68,5 @@ export default {
   @include mq(sm) {
     width: 1180px;
   }
-}
-
-.profileThumbs {
-  @include mq(sm) {
-    display: flex;
-  }
-}
-
-.profileThumb {
-  @include mq(xs) {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 254px;
-  }
-
-  &:not(:first-of-type) {
-    @include mq(sm) {
-      margin-left: 1px;
-    }
-
-    @include mq(xs) {
-      display: none;
-    }
-  }
-
-  & > img {
-    height: auto;
-    max-width: 100%;
-  }
-}
-
-.profileArticles {
-  padding-top: 32px;
-
-  @include mq(sm) {
-    display: flex;
-  }
-}
-
-.profileArticle {
-  @include mq(sm) {
-    flex-basis: 50%;
-  }
-
-  &:not(:first-of-type) {
-    @include mq(sm) {
-      margin-left: 16px;
-    }
-
-    @include mq(xs) {
-      margin-top: 28px;
-    }
-  }
-}
-
-.profileArticleHeading {
-  margin-bottom: 0.6em;
 }
 </style>
