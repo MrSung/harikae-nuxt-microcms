@@ -8,9 +8,6 @@
         <h3 :class="$style.processArticleSubtitle">
           {{ currentPathProcess.processSubtitle }}
         </h3>
-        <h4 :class="$style.processArticleDate">
-          {{ currentPathProcess.processDate | formatDate }}
-        </h4>
         <div
           v-for="processArticleItem in processArticle"
           :key="processArticleItem.id"
@@ -50,15 +47,6 @@ import { nanoid } from 'nanoid'
 import { API_BASE_URL, API_KEY } from '~/config/microcms'
 
 export default {
-  filters: {
-    formatDate: (date) =>
-      new Date(date)
-        .toISOString()
-        .split('T')[0]
-        .split('-')
-        .map((str) => str.slice(-2))
-        .join('.')
-  },
   async asyncData({ $axios }) {
     const { contents: processResponseData } = await $axios.$get(
       `${API_BASE_URL}/process`,
@@ -116,10 +104,6 @@ export default {
 
 .processArticleSubtitle {
   font-size: 14px;
-}
-
-.processArticleDate {
-  font-size: 12px;
 }
 
 .processArticleItem {
