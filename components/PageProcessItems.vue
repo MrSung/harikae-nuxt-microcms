@@ -77,14 +77,14 @@ export default {
 
   @include mq(sm) {
     height: 272px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     max-width: 300px;
     width: 280px;
   }
 
   @include mq(xs) {
-    height: 80vw;
-    margin-bottom: 32px;
+    height: 86vw;
+    margin-bottom: 16px;
     width: 100%;
   }
 
