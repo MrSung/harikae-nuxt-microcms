@@ -37,6 +37,12 @@ export default {
     isDropdownOpen: false,
     isMobile: false,
   }),
+  watch: {
+    $route() {
+      // Close nav menu on route change
+      this.navMenuHide()
+    },
+  },
   mounted() {
     const deviceType = this.$ua.deviceType()
     this.isMobile = deviceType === 'smartphone'
