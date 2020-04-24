@@ -37,12 +37,10 @@ export default {
     isDropdownOpen: false,
     isMobile: false,
   }),
-  created() {
+  mounted() {
     const deviceType = this.$ua.deviceType()
     this.isMobile = deviceType === 'smartphone'
-  },
-  mounted() {
-    if (this.isMobile) {
+    if (this.isMobile && document.body) {
       document.body.setAttribute('data-ua-smartphone', '')
     }
     this.setMainHeight()
