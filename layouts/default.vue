@@ -41,12 +41,10 @@ export default {
     const deviceType = this.$ua.deviceType()
     this.isMobile = deviceType === 'smartphone'
   },
-  beforeMount() {
+  mounted() {
     if (this.isMobile) {
       document.body.setAttribute('data-ua-smartphone', '')
     }
-  },
-  mounted() {
     this.setMainHeight()
     this.$nextTick(() => {
       window.addEventListener('load', () => {
