@@ -2,6 +2,11 @@
   <nav
     :class="[$style.navMenu, isNavMenuOpen && $style['navMenu--navMenuOpen']]"
   >
+    <div
+      v-if="isMobile"
+      :class="$style.navBackdrop"
+      @click="handleNavMenuBackdropClick"
+    ></div>
     <div :class="$style.navMenuLogo">
       <img
         src="~/assets/img/harikae-logo-bright.svg"
@@ -12,7 +17,7 @@
       />
     </div>
     <ul
-      :class="$style.navMenuUl"
+      :class="[$style.navMenuUl, isMobile && $style['navMenuUl--isMobile']]"
       @mouseover="handleNavMenuMouseOver"
       @mouseleave="handleNavMenuMouseLeave"
     >
@@ -114,6 +119,10 @@ export default {
       if (this.isMobile) return
       this.$emit('handle-nav-menu-mouse-leave')
     },
+    handleNavMenuBackdropClick() {
+      if (!this.isMobile) return
+      this.$emit('handle-nav-menu-backdrop-click')
+    },
     handleDropdownClick() {
       this.$emit('handle-dropdown-click')
     },
@@ -146,6 +155,14 @@ export default {
   }
 }
 
+.navBackdrop {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 60px;
+}
+
 .navMenuLogo {
   left: 48px;
   position: absolute;
@@ -173,6 +190,11 @@ export default {
   @include mq(xs) {
     padding: 0 8px 16px 16px;
     width: 108px;
+  }
+
+  &--isMobile {
+    position: relative;
+    z-index: $z-1;
   }
 }
 

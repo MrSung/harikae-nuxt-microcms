@@ -16,6 +16,7 @@
       :is-mobile="isMobile"
       @handle-nav-menu-mouse-over="navMenuShow"
       @handle-nav-menu-mouse-leave="navMenuHide"
+      @handle-nav-menu-backdrop-click="navMenuHide"
       @handle-dropdown-click="toggleDropdown"
     />
   </div>
