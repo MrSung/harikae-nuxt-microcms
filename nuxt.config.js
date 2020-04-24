@@ -69,7 +69,7 @@ export default {
     ],
   ],
   server: {
-    port: 3333,
+    port: 3456,
   },
   /*
    ** Axios module configuration
