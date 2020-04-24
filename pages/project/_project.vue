@@ -8,6 +8,8 @@
             :key="projectItem.id"
             :class="[
               $style.projectThumb,
+              currentPathProject.projectModeLandscape &&
+                $style['projectThumb--landscape'],
               isMounted && $style['projectThumb--mounted'],
             ]"
           >
@@ -153,6 +155,18 @@ export default {
     background-color: $color-ffffff;
     content: '';
     display: block;
+  }
+
+  &--landscape {
+    @include asr(3, 2);
+
+    @include mq(sm) {
+      width: 393.3333px;
+    }
+
+    @include mq(xs) {
+      width: 50%;
+    }
   }
 
   &--mounted::before {
