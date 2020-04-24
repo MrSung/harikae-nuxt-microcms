@@ -24,7 +24,11 @@
       v-show="$route.name === 'index'"
       :class="[$style.frame, $style['frame--rightBottom']]"
     >
-      <a href="javascript: void(0)" :class="$style.storeLink" target="_blank">
+      <a
+        href="https://store.harikae-co.com/"
+        :class="$style.storeLink"
+        target="_blank"
+      >
         <span :class="$style.storeLinkText">online store</span>
       </a>
     </div>

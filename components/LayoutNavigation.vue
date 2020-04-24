@@ -71,18 +71,26 @@
         </nuxt-link>
       </li>
       <li :class="[$style.navMenuLi, $style['navMenuLi--last']]">
-        <a href="javascript: void(0)" :class="$style.navMenuAnchor">
+        <a
+          href="https://www.instagram.com/harikae_official/"
+          :class="$style.navMenuAnchor"
+          target="_blank"
+        >
           <img
             src="~/assets/img/icon_instagram.svg"
-            alt=""
+            alt="Instagram"
             width="28"
             height="28"
           />
         </a>
-        <a href="javascript: void(0)" :class="$style.navMenuAnchor">
+        <a
+          href="https://www.facebook.com/harikaeofficial/"
+          :class="$style.navMenuAnchor"
+          target="_blank"
+        >
           <img
             src="~/assets/img/icon_facebook.svg"
-            alt=""
+            alt="Facebook"
             width="24"
             height="24"
           />
