@@ -8,13 +8,26 @@
       @click="handleNavMenuBackdropClick"
     ></div>
     <div :class="$style.navMenuLogo">
-      <img
-        src="~/assets/img/harikae-logo-bright.svg"
-        alt="Harikae"
-        :class="[$style.navMenuLogoImg, $style.logoImg]"
-        width="200"
-        height="32"
-      />
+      <template v-if="isMobile">
+        <nuxt-link to="/" :class="$style.navMenuLogoLink">
+          <img
+            src="~/assets/img/harikae-logo-bright.svg"
+            alt="Harikae"
+            :class="[$style.navMenuLogoImg, $style.logoImg]"
+            width="200"
+            height="32"
+          />
+        </nuxt-link>
+      </template>
+      <template v-else>
+        <img
+          src="~/assets/img/harikae-logo-bright.svg"
+          alt="Harikae"
+          :class="[$style.navMenuLogoImg, $style.logoImg]"
+          width="200"
+          height="32"
+        />
+      </template>
     </div>
     <ul
       :class="[$style.navMenuUl, isMobile && $style['navMenuUl--isMobile']]"
@@ -174,10 +187,20 @@ export default {
   }
 }
 
+.navMenuLogoLink {
+  display: inline-block;
+  transform: rotate(90deg);
+  transform-origin: left top;
+}
+
 .navMenuLogoImg {
   @include mq(xs) {
     transform: rotate(90deg);
     transform-origin: left top;
+  }
+
+  .navMenuLogoLink > & {
+    transform: none;
   }
 }
 
