@@ -40,7 +40,7 @@ export default {
   data: () => ({
     swiperOption: {
       init: false,
-      autoplay: 8500,
+      autoplay: { delay: 8500 },
       direction: 'vertical',
       loop: true,
       speed: 800,
