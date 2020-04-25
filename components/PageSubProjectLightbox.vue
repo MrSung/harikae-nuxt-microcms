@@ -76,7 +76,6 @@ export default {
     },
   },
   mounted() {
-    // Defer the callback to be executed after the next DOM update cycle
     this.$nextTick(() => {
       const { galleryImages } = this.$refs
       // After all gallery images are loaded

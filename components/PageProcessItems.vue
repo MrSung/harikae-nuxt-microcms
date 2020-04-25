@@ -67,7 +67,6 @@ export default {
     },
   },
   mounted() {
-    // Defer the callback to be executed after the next DOM update cycle
     this.$nextTick(() => {
       const { processImages } = this.$refs
       // After all process images are loaded

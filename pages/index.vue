@@ -61,7 +61,6 @@ export default {
       this.topSlider.init()
       return
     }
-    // Defer the callback to be executed after the next DOM update cycle
     this.$nextTick(() => {
       window.addEventListener('load', () => {
         this.topSlider.init()

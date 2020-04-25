@@ -39,8 +39,8 @@ export default {
   }),
   watch: {
     $route() {
-      // Close nav menu on route change
       this.navMenuHide()
+      this.setMainHeight()
     },
   },
   mounted() {
