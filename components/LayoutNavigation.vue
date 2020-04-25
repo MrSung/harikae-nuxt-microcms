@@ -34,7 +34,12 @@
       @mouseover="handleNavMenuMouseOver"
       @mouseleave="handleNavMenuMouseLeave"
     >
-      <li :class="$style.navMenuLi">
+      <li
+        :class="[
+          $style.navMenuLi,
+          isDropdownOpen && $style['navMenuLi--dropdownOpen'],
+        ]"
+      >
         <a
           href="javascript: void(0)"
           :class="[
@@ -69,6 +74,15 @@
         <nuxt-link to="/about" :class="$style.navMenuAnchor">
           about
         </nuxt-link>
+      </li>
+      <li :class="$style.navMenuLi">
+        <a
+          href="https://store.harikae-co.com/"
+          :class="$style.navMenuAnchor"
+          target="_blank"
+        >
+          online store
+        </a>
       </li>
       <li :class="[$style.navMenuLi, $style['navMenuLi--last']]">
         <a
@@ -215,12 +229,10 @@ export default {
 .navMenuUl {
   display: inline-block;
   margin-left: auto;
-  padding: 48px 8px 24px 28px;
-  width: 150px;
+  padding: 48px 48px 24px 28px;
 
   @include mq(xs) {
-    padding: 0 8px 16px 16px;
-    width: 108px;
+    padding: 6px 16px 16px;
   }
 
   &--isMobile {
@@ -230,16 +242,16 @@ export default {
 }
 
 .navMenuLi {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
+  text-align: right;
 
-  @include mq(xs) {
-    min-width: 60px;
+  &--dropdownOpen {
+    margin-bottom: 1.35rem;
   }
 
   &--last {
     display: flex;
-    justify-content: space-between;
-    max-width: 50px;
+    justify-content: flex-end;
   }
 }
 
@@ -265,7 +277,7 @@ export default {
   }
 
   .navMenuLi--last > & {
-    min-width: 28px;
+    width: 28px;
   }
 
   .navMenuLi--last > &:not(:last-of-type) {

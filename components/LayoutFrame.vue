@@ -81,7 +81,7 @@ export default {
 
   &--rightTop {
     display: flex;
-    right: 78px;
+    right: 50px;
     top: 48px;
     z-index: $z-1020;
 
