@@ -40,7 +40,10 @@ export default {
   watch: {
     $route() {
       this.navMenuHide()
-      this.setMainHeight()
+      const { main } = this.$refs
+      if (main.getBoundingClientRect().height === 0) {
+        this.setMainHeight()
+      }
     },
   },
   mounted() {
