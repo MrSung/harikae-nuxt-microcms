@@ -173,6 +173,6 @@ img {
 // Page - Process
 // ----------------------------------------
 .page-process {
-  background-color: $color-d9d9d9;
+  background-color: $color-e0e0e0;
 }
 </style>
