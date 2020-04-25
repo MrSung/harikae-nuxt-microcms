@@ -57,11 +57,17 @@ export default {
       }))
     },
   },
-  head: () => ({
-    bodyAttrs: {
-      class: 'page-process',
-    },
-  }),
+  head() {
+    const title = this.currentPathProcess
+      ? this.currentPathProcess.processTitle
+      : 'Process article'
+    return {
+      title,
+      bodyAttrs: {
+        class: 'page-process',
+      },
+    }
+  },
 }
 </script>
 

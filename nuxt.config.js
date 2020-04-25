@@ -7,7 +7,8 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: SITE_NAME || '',
+    // title: SITE_NAME || '',
+    titleTemplate: `${SITE_NAME} | %s`,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

@@ -26,6 +26,7 @@ export default {
     return { processResponseData }
   },
   head: () => ({
+    title: 'Process',
     bodyAttrs: {
       class: 'page-process',
     },

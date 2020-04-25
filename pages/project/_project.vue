@@ -36,10 +36,16 @@ export default {
       )
     },
   },
-  head: () => ({
-    bodyAttrs: {
-      class: 'page-project',
-    },
-  }),
+  head() {
+    const title = this.currentPathProject
+      ? this.currentPathProject.projectHeadingEn
+      : 'Project showcase'
+    return {
+      title,
+      bodyAttrs: {
+        class: 'page-project',
+      },
+    }
+  },
 }
 </script>

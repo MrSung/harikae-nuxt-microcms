@@ -73,6 +73,9 @@ export default {
       if (link === '#') event.preventDefault()
     },
   },
+  head: () => ({
+    title: 'Top',
+  }),
 }
 </script>
 
