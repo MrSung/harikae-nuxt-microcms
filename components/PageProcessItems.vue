@@ -95,7 +95,7 @@ export default {
   }
 
   &--mounted::before {
-    background-color: $color-001247;
+    background-color: $color-000b47;
   }
 
   &:not(:nth-of-type(4n)) {

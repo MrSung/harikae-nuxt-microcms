@@ -120,7 +120,7 @@ img {
 // ----------------------------------------
 .page-project {
   .fslightbox-container {
-    background: linear-gradient(rgba($color-001247, 0.9), $color-001247 1810%);
+    background: linear-gradient(rgba($color-000b47, 0.9), $color-000b47 1810%);
   }
 
   .fslightbox-slash {
