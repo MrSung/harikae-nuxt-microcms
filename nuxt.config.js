@@ -1,4 +1,17 @@
-import { SITE_NAME, SITE_DESCRIPTION } from './config/siteMeta'
+import {
+  SITE_LANG,
+  SITE_NAME,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+} from './config/siteMeta'
+import {
+  OG_IMAGE,
+  FAVICON_16,
+  FAVICON_32,
+  FAVICON_48,
+  FAVICON_64,
+  APPLE_TOUCH_ICON,
+} from './config/icons'
 import dynamicRoutes from './routes/dynamicRoutes'
 
 export default {
@@ -7,15 +20,74 @@ export default {
    ** Headers of the page
    */
   head: {
-    // title: SITE_NAME || '',
+    htmlAttrs: {
+      lang: SITE_LANG,
+      prefix: 'og: http://ogp.me/ns#',
+    },
     titleTemplate: `${SITE_NAME} | %s`,
     meta: [
       { charset: 'utf-8' },
+      { 'http-equiv': 'x-ua-compatible', content: 'ie=edge' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'format-detection',
+        content: 'telephone=no, email=no, address=no',
+      },
       {
         hid: 'description',
         name: 'description',
         content: SITE_DESCRIPTION || '',
+      },
+      { hid: 'keywords', name: 'keywords', content: SITE_KEYWORDS },
+      // OGP
+      { hid: 'og:site_name', property: 'og:site_name', content: SITE_NAME },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: 'http://harikae-co.com/' },
+      { hid: 'og:title', property: 'og:title', content: SITE_NAME },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: SITE_DESCRIPTION,
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: OG_IMAGE,
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      // Icons
+      {
+        rel: 'icon',
+        sizes: '16x16',
+        type: 'image/png',
+        href: FAVICON_16,
+      },
+      {
+        rel: 'icon',
+        sizes: '32x32',
+        type: 'image/png',
+        href: FAVICON_32,
+      },
+      {
+        rel: 'icon',
+        sizes: '48x48',
+        type: 'image/png',
+        href: FAVICON_48,
+      },
+      {
+        rel: 'icon',
+        sizes: '64x64',
+        type: 'image/png',
+        href: FAVICON_64,
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: APPLE_TOUCH_ICON,
+      },
+      {
+        name: 'theme-color',
+        content: '#2b3278',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

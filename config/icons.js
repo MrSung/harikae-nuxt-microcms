@@ -1,0 +1,6 @@
+export const OG_IMAGE = '/ogp-harikae.png'
+export const FAVICON_16 = '/favicon-harikae-16.png'
+export const FAVICON_32 = '/favicon-harikae-32.png'
+export const FAVICON_48 = '/favicon-harikae-48.png'
+export const FAVICON_64 = '/favicon-harikae-64.png'
+export const APPLE_TOUCH_ICON = '/apple-touch-icon-harikae.png'
