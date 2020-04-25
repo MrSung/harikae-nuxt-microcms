@@ -1,7 +1,7 @@
 <template>
   <ul :class="$style.processList">
     <li
-      v-for="processItem in processResponseData"
+      v-for="processItem in processResponseSorted"
       :key="processItem.id"
       :class="[$style.processItem, $style['processItem--mounted']]"
     >
@@ -22,7 +22,7 @@
         <h2 :class="$style.processTitle">
           {{ processItem.processTitle }}
         </h2>
-        <h3 :class="$style.processTitle">
+        <h3 v-if="processItem.processSubtitle" :class="$style.processTitle">
           {{ processItem.processSubtitle }}
         </h3>
       </nuxt-link>
@@ -52,6 +52,17 @@ export default {
   data: () => ({
     isMounted: false,
   }),
+  computed: {
+    processResponseSorted() {
+      const deepCopy = (referenceValue) =>
+        JSON.parse(JSON.stringify(referenceValue))
+      const getEpochTime = (timeString) => new Date(timeString).getTime()
+      const copiedResponse = deepCopy(this.processResponseData)
+      return copiedResponse.sort(
+        (a, b) => getEpochTime(b.processDate) - getEpochTime(a.processDate)
+      )
+    },
+  },
   mounted() {
     // Defer the callback to be executed after the next DOM update cycle
     this.$nextTick(() => {
