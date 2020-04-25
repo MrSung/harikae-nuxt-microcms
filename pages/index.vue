@@ -10,7 +10,9 @@
       <PageIndexSlide
         v-for="topItem in topResponseData"
         :key="topItem.id"
-        :top-item="topItem"
+        :top-slider-link="topItem.topSliderLink"
+        :top-slider-target-blank="topItem.topSliderTargetBlank"
+        :top-slider-image-url="topItem.topSliderImage.url"
         @handle-top-slider-link-click="handleTopSliderLinkClick"
       />
     </div>

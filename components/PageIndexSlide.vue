@@ -1,10 +1,11 @@
 <template>
   <div class="swiper-slide">
     <a
-      :href="topItem.topSliderLink"
+      :href="topSliderLink"
       :class="$style.topSliderImage"
-      :style="`background-image: url(${topItem.topSliderImage.url})`"
-      @click="handleTopSliderLinkClick($event, topItem.topSliderLink)"
+      :target="topSliderTargetBlank && '_blank'"
+      :style="`background-image: url(${topSliderImageUrl})`"
+      @click="handleTopSliderLinkClick($event, topSliderLink)"
     ></a>
   </div>
 </template>
@@ -12,8 +13,16 @@
 <script>
 export default {
   props: {
-    topItem: {
-      type: Object,
+    topSliderLink: {
+      type: String,
+      required: true,
+    },
+    topSliderTargetBlank: {
+      type: Boolean,
+      required: true,
+    },
+    topSliderImageUrl: {
+      type: String,
       required: true,
     },
   },
