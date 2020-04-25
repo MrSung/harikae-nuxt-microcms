@@ -40,8 +40,8 @@ export default {
   watch: {
     $route() {
       this.navMenuHide()
-      const { main } = this.$refs
-      if (main.getBoundingClientRect().height === 0) {
+      const main = this.$refs.main || null
+      if (main && main.getBoundingClientRect().height === 0) {
         this.setMainHeight()
       }
     },
