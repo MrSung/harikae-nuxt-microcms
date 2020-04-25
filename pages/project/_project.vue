@@ -15,7 +15,10 @@
           >
             <a
               href="#"
-              :class="$style.projectThumbLink"
+              :class="[
+                $style.projectThumbLink,
+                isMounted && $style['projectThumbLink--mounted'],
+              ]"
               @click.prevent="openLightboxOnSlide(index + 1)"
             >
               <img
@@ -151,12 +154,6 @@ export default {
     width: 33.3333%;
   }
 
-  &::before {
-    background-color: $color-ffffff;
-    content: '';
-    display: block;
-  }
-
   &--landscape {
     @include asr(3, 2);
 
@@ -171,13 +168,17 @@ export default {
 
   &--mounted::before {
     background-color: $color-000b47;
+    content: '';
+    display: block;
   }
 }
 
 .projectThumbLink {
-  transition: opacity 0.2s $trans-timing-func;
+  &--mounted {
+    transition: opacity 0.2s $trans-timing-func;
+  }
 
-  &:hover {
+  &--mounted:hover {
     opacity: 0.1;
   }
 }

@@ -3,11 +3,14 @@
     <li
       v-for="processItem in processResponseSorted"
       :key="processItem.id"
-      :class="[$style.processItem, $style['processItem--mounted']]"
+      :class="[$style.processItem, isMounted && $style['processItem--mounted']]"
     >
       <nuxt-link
         :to="`/process/${processItem.processSlug}`"
-        :class="$style.processItemLink"
+        :class="[
+          $style.processItemLink,
+          isMounted && $style['processItemLink--mounted'],
+        ]"
       >
         <img
           ref="processImages"
@@ -99,14 +102,10 @@ export default {
     width: 100%;
   }
 
-  &::before {
-    background-color: $color-ffffff;
-    content: '';
-    display: block;
-  }
-
   &--mounted::before {
     background-color: $color-000b47;
+    content: '';
+    display: block;
   }
 
   &:not(:nth-of-type(4n)) {
@@ -117,11 +116,11 @@ export default {
 }
 
 .processItemLink {
-  & > img {
+  &--mounted > img {
     transition: opacity 0.2s $trans-timing-func;
   }
 
-  &:hover > img {
+  &--mounted:hover > img {
     opacity: 0.1;
   }
 }
