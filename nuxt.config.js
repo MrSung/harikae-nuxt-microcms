@@ -158,8 +158,8 @@ export default {
   ],
   sitemap: {
     hostname: SITE_URL_PROD,
-    routes: () => {
-      const dynamicRoutesArray = dynamicRoutes()
+    routes: async () => {
+      const dynamicRoutesArray = await dynamicRoutes()
       return dynamicRoutesArray.map((obj) => obj.route)
     },
   },
