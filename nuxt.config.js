@@ -37,7 +37,7 @@ export default {
       lang: SITE_LANG,
       prefix: 'og: http://ogp.me/ns#',
     },
-    titleTemplate: `${SITE_NAME} | %s`,
+    titleTemplate: `${SITE_NAME} | %s | ${SITE_KEYWORDS}`,
     meta: [
       { charset: 'utf-8' },
       { 'http-equiv': 'x-ua-compatible', content: 'ie=edge' },
