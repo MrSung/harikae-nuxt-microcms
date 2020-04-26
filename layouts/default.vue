@@ -78,7 +78,7 @@ export default {
     this.showSplashLogo = !this.showSplashLogo
     setTimeout(() => {
       this.showSplashLogo = !this.showSplashLogo
-      Cookies.set('splash', 'set', { expires: 1 })
+      Cookies.set('splash', 'set', { expires: 1, path: '/' })
     }, 3000)
     // Set main height for Swiper to init properly
     this.setMainHeight()
