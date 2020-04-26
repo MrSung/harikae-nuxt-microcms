@@ -19,11 +19,6 @@
       @handle-nav-menu-backdrop-click="navMenuHide"
       @handle-dropdown-click="toggleDropdown"
     />
-    <!-- <LayoutSplash
-      v-if="!splashCookieExists"
-      :show-splash="showSplash"
-      :show-splash-logo="showSplashLogo"
-    /> -->
   </div>
 </template>
 
