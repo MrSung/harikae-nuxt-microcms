@@ -41,10 +41,7 @@ export default {
     $route() {
       this.navMenuHide()
       this.$nextTick(() => {
-        const main = this.$refs.main || null
-        if (main && main.getBoundingClientRect().height === 0) {
-          this.setMainHeight()
-        }
+        this.setMainHeight()
       })
     },
     showSplashLogo(val) {
