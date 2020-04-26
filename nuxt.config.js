@@ -3,6 +3,7 @@ import {
   SITE_NAME,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
+  SITE_URL_PROD,
 } from './config/siteMeta'
 import {
   OG_IMAGE,
@@ -51,22 +52,6 @@ export default {
         content: SITE_DESCRIPTION || '',
       },
       { hid: 'keywords', name: 'keywords', content: SITE_KEYWORDS },
-      // OGP
-      { hid: 'og:site_name', property: 'og:site_name', content: SITE_NAME },
-      { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:url', property: 'og:url', content: 'http://harikae-co.com/' },
-      { hid: 'og:title', property: 'og:title', content: SITE_NAME },
-      {
-        hid: 'og:description',
-        property: 'og:description',
-        content: SITE_DESCRIPTION,
-      },
-      {
-        hid: 'og:image',
-        property: 'og:image',
-        content: OG_IMAGE,
-      },
-      { name: 'twitter:card', content: 'summary_large_image' },
       // Icons
       {
         rel: 'icon',
@@ -96,10 +81,6 @@ export default {
         rel: 'apple-touch-icon',
         sizes: '180x180',
         href: APPLE_TOUCH_ICON,
-      },
-      {
-        name: 'theme-color',
-        content: '#2b3278',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -131,11 +112,30 @@ export default {
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
+    // Doc: https://github.com/nuxt-community/analytics-module
+    // [
+    //   '@nuxtjs/google-analytics',
+    //   {
+    //     id: 'UA-12301-2',
+    //   },
+    // ],
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://github.com/AlekseyPleshkov/nuxt-social-meta
+    [
+      'nuxt-social-meta',
+      {
+        title: SITE_NAME,
+        description: SITE_DESCRIPTION,
+        url: SITE_URL_PROD,
+        img: OG_IMAGE,
+        locale: 'ja_JP',
+        themeColor: '#2b3278',
+      },
+    ],
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -153,7 +153,16 @@ export default {
         // defaultImage: '/images/default-image.jpg',
       },
     ],
+    // Doc: https://github.com/nuxt-community/sitemap-module
+    '@nuxtjs/sitemap', // Always declare the sitemap module at end of array
   ],
+  sitemap: {
+    hostname: SITE_URL_PROD,
+    routes: () => {
+      const dynamicRoutesArray = dynamicRoutes()
+      return dynamicRoutesArray.map((obj) => obj.route)
+    },
+  },
   server: {
     port: 3456,
   },
