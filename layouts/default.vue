@@ -19,24 +19,39 @@
       @handle-nav-menu-backdrop-click="navMenuHide"
       @handle-dropdown-click="toggleDropdown"
     />
+    <LayoutSplash
+      v-if="!splashCookieExists"
+      :show-splash="showSplash"
+      :show-splash-logo="showSplashLogo"
+    />
   </div>
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 import { mapActions } from 'vuex'
 import LayoutFrame from '~/components/LayoutFrame.vue'
 import LayoutNavigation from '~/components/LayoutNavigation'
+import LayoutSplash from '~/components/LayoutSplash.vue'
 
 export default {
   components: {
     LayoutFrame,
     LayoutNavigation,
+    LayoutSplash,
   },
   data: () => ({
     isNavMenuOpen: false,
     isDropdownOpen: false,
     isMobile: false,
+    showSplash: true,
+    showSplashLogo: false,
   }),
+  computed: {
+    splashCookieExists() {
+      return !!Cookies.get('splash')
+    },
+  },
   watch: {
     $route() {
       this.navMenuHide()
@@ -45,13 +60,27 @@ export default {
         this.setMainHeight()
       }
     },
+    showSplashLogo(val) {
+      if (val) return
+      setTimeout(() => {
+        this.showSplash = !this.showSplash
+      }, 300)
+    },
   },
   mounted() {
+    // Set device UA
     const deviceType = this.$ua.deviceType()
     this.isMobile = deviceType === 'smartphone'
     if (this.isMobile && document.body) {
       document.body.setAttribute('data-ua-smartphone', '')
     }
+    // Set splash screen
+    this.showSplashLogo = !this.showSplashLogo
+    setTimeout(() => {
+      this.showSplashLogo = !this.showSplashLogo
+      Cookies.set('splash', 'set', { expires: 1 })
+    }, 3000)
+    // Set main height for Swiper to init properly
     this.setMainHeight()
     this.$nextTick(() => {
       window.addEventListener('load', () => {
