@@ -40,10 +40,12 @@ export default {
   watch: {
     $route() {
       this.navMenuHide()
-      const main = this.$refs.main || null
-      if (main && main.getBoundingClientRect().height === 0) {
-        this.setMainHeight()
-      }
+      this.$nextTick(() => {
+        const main = this.$refs.main || null
+        if (main && main.getBoundingClientRect().height === 0) {
+          this.setMainHeight()
+        }
+      })
     },
     showSplashLogo(val) {
       if (val) return
