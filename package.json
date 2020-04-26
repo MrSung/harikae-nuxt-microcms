@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.10.1",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.0.0-0",
     "axios": "^0.19.2",
     "imagesloaded": "^4.1.4",

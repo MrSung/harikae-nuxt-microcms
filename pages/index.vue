@@ -21,7 +21,6 @@
 
 <script>
 import { mapState } from 'vuex'
-import { API_BASE_URL, API_KEY } from '~/config/microcms'
 import PageIndexSlide from '~/components/PageIndexSlide.vue'
 
 export default {
@@ -30,9 +29,9 @@ export default {
   },
   async asyncData({ $axios }) {
     const { contents: topResponseData } = await $axios.$get(
-      `${API_BASE_URL}/top`,
+      `${process.env.API_BASE_URL}/top`,
       {
-        headers: { 'X-API-KEY': API_KEY },
+        headers: { 'X-API-KEY': process.env.API_KEY },
       }
     )
     return { topResponseData }

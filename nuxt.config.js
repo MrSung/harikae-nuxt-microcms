@@ -14,8 +14,20 @@ import {
 } from './config/icons'
 import dynamicRoutes from './routes/dynamicRoutes'
 
+require('dotenv').config()
+
+const { API_BASE_URL, API_KEY } = process.env
+
 export default {
   mode: 'universal',
+  /*
+   ** Dotenv
+   ** Doc: https://github.com/nuxt-community/dotenv-module
+   */
+  env: {
+    API_BASE_URL,
+    API_KEY,
+  },
   /*
    ** Headers of the page
    */

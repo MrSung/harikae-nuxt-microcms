@@ -22,7 +22,6 @@
 
 <script>
 import { nanoid } from 'nanoid'
-import { API_BASE_URL, API_KEY } from '~/config/microcms'
 import PageAboutThumbs from '~/components/PageAboutThumbs.vue'
 import PageAboutProfileArticles from '~/components/PageAboutProfileArticles.vue'
 
@@ -32,9 +31,12 @@ export default {
     PageAboutProfileArticles,
   },
   async asyncData({ $axios }) {
-    const aboutResponseData = await $axios.$get(`${API_BASE_URL}/about`, {
-      headers: { 'X-API-KEY': API_KEY },
-    })
+    const aboutResponseData = await $axios.$get(
+      `${process.env.API_BASE_URL}/about`,
+      {
+        headers: { 'X-API-KEY': process.env.API_KEY },
+      }
+    )
     return { aboutResponseData }
   },
   computed: {

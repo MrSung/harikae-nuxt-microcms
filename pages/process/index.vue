@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { API_BASE_URL, API_KEY } from '~/config/microcms'
 import PageProcessItems from '~/components/PageProcessItems.vue'
 
 export default {
@@ -18,9 +17,9 @@ export default {
   },
   async asyncData({ $axios }) {
     const { contents: processResponseData } = await $axios.$get(
-      `${API_BASE_URL}/process`,
+      `${process.env.API_BASE_URL}/process`,
       {
-        headers: { 'X-API-KEY': API_KEY },
+        headers: { 'X-API-KEY': process.env.API_KEY },
       }
     )
     return { processResponseData }

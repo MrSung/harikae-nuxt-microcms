@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { API_BASE_URL, API_KEY } from '~/config/microcms'
 import PageSubProjectLightbox from '~/components/PageSubProjectLightbox.vue'
 import PageSubProjectArticles from '~/components/PageSubProjectArticles.vue'
 
@@ -21,9 +20,9 @@ export default {
   },
   async asyncData({ $axios }) {
     const { contents: projectResponseData } = await $axios.$get(
-      `${API_BASE_URL}/project`,
+      `${process.env.API_BASE_URL}/project`,
       {
-        headers: { 'X-API-KEY': API_KEY },
+        headers: { 'X-API-KEY': process.env.API_KEY },
       }
     )
     return { projectResponseData }
