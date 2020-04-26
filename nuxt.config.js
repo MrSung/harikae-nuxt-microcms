@@ -1,6 +1,7 @@
 import {
   SITE_LANG,
   SITE_NAME,
+  SITE_PROFILE,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
   SITE_URL_PROD,
@@ -37,7 +38,7 @@ export default {
       lang: SITE_LANG,
       prefix: 'og: http://ogp.me/ns#',
     },
-    titleTemplate: `${SITE_NAME} | %s | ${SITE_KEYWORDS}`,
+    titleTemplate: `${SITE_NAME} | %s | ${SITE_PROFILE}`,
     meta: [
       { charset: 'utf-8' },
       { 'http-equiv': 'x-ua-compatible', content: 'ie=edge' },
