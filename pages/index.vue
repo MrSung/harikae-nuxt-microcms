@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import PageIndexSlide from '~/components/PageIndexSlide.vue'
 
 export default {
@@ -52,19 +51,10 @@ export default {
       },
     },
   }),
-  computed: {
-    ...mapState(['loadedFirstTime']),
-  },
   mounted() {
-    if (this.loadedFirstTime) {
+    setTimeout(() => {
       this.topSlider.init()
-      return
-    }
-    this.$nextTick(() => {
-      window.addEventListener('load', () => {
-        this.topSlider.init()
-      })
-    })
+    }, 400)
   },
   methods: {
     handleTopSliderLinkClick(event, link) {

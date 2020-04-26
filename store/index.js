@@ -5,7 +5,6 @@ const apiSubmenu = `${process.env.API_BASE_URL}/submenu`
 
 export const state = () => ({
   submenuItems: null,
-  loadedFirstTime: false,
 })
 
 export const getters = {
@@ -30,9 +29,6 @@ export const mutations = {
   setSubmenuItems(state, payload) {
     state.submenuItems = payload
   },
-  setLoadedFirstTime(state, payload) {
-    state.loadedFirstTime = payload
-  },
 }
 
 export const actions = {
@@ -41,8 +37,5 @@ export const actions = {
       headers: { 'X-API-KEY': process.env.API_KEY },
     })
     commit('setSubmenuItems', responseData)
-  },
-  setLoadedFirstTime({ commit }, payload) {
-    commit('setLoadedFirstTime', payload)
   },
 }

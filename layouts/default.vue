@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import LayoutFrame from '~/components/LayoutFrame.vue'
 import LayoutNavigation from '~/components/LayoutNavigation'
 
@@ -40,15 +39,6 @@ export default {
   watch: {
     $route() {
       this.navMenuHide()
-      this.$nextTick(() => {
-        this.setMainHeight()
-      })
-    },
-    showSplashLogo(val) {
-      if (val) return
-      setTimeout(() => {
-        this.showSplash = !this.showSplash
-      }, 300)
     },
   },
   mounted() {
@@ -58,16 +48,8 @@ export default {
     if (this.isMobile && document.body) {
       document.body.setAttribute('data-ua-smartphone', '')
     }
-    // Set main height for Swiper to init properly
-    this.setMainHeight()
-    this.$nextTick(() => {
-      window.addEventListener('load', () => {
-        this.setLoadedFirstTime(true)
-      })
-    })
   },
   methods: {
-    ...mapActions(['setLoadedFirstTime']),
     navMenuShow() {
       this.isNavMenuOpen = true
     },
@@ -79,14 +61,6 @@ export default {
     },
     toggleDropdown() {
       this.isDropdownOpen = !this.isDropdownOpen
-    },
-    setMainHeight() {
-      const { main } = this.$refs
-      const handleMainHeight = () => {
-        main.style.height = `${window.innerHeight}px`
-      }
-      window.addEventListener('load', handleMainHeight)
-      window.addEventListener('resize', handleMainHeight)
     },
   },
 }
