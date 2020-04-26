@@ -7,7 +7,7 @@
       @handle-nav-button-mouse-leave="navMenuHide"
       @handle-nav-button-click="navMenuClick"
     />
-    <main ref="main">
+    <main id="main" ref="main">
       <nuxt />
     </main>
     <LayoutNavigation
