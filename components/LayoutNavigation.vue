@@ -139,13 +139,13 @@ export default {
     ...mapGetters(['submenuItems']),
   },
   async created() {
-    await this.init()
+    await this.getSubmenuData()
     this.submenuItemsProject = this.submenuItems.filter(
       (item) => item.slug === 'project'
     )
   },
   methods: {
-    ...mapActions(['init']),
+    ...mapActions(['getSubmenuData']),
     handleNavMenuMouseOver() {
       if (this.isMobile) return
       this.$emit('handle-nav-menu-mouse-over')

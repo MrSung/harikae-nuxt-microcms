@@ -36,7 +36,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async init({ commit }) {
+  async getSubmenuData({ commit }) {
     const { data: responseData } = await axios.get(apiSubmenu, {
       headers: { 'X-API-KEY': process.env.API_KEY },
     })
