@@ -63,6 +63,111 @@
               {{ submenuItem.submenuItemTitle }}
             </nuxt-link>
           </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
+          <li :class="$style.navMenuLiLi">
+            <a href="javascript:void(0)" :class="$style.navMenuLiAnchor">
+              dummy link
+            </a>
+          </li>
         </ul>
       </li>
       <li :class="$style.navMenuLi">
@@ -173,6 +278,7 @@ export default {
   display: flex;
   left: 0;
   opacity: 0;
+  overflow-y: scroll;
   padding: 72px 0 28px;
   position: fixed;
   right: 0;
@@ -200,7 +306,7 @@ export default {
 
 .navMenuLogo {
   left: 48px;
-  position: absolute;
+  position: fixed;
   top: 55px;
 
   @include mq(xs) {
