@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const main = document.getElementById('main')
+  const main = document.getElementById('main') || null
+  if (!main) return
   const handleMainHeight = () => {
     main.style.height = `${window.innerHeight}px`
   }
