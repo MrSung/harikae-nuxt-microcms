@@ -23,7 +23,7 @@
 import { mapState, mapActions } from 'vuex'
 import PageIndexSlide from '~/components/PageIndexSlide.vue'
 
-let observer
+let observer // Instance of mutation observer
 
 export default {
   components: {
@@ -55,14 +55,17 @@ export default {
     },
   }),
   computed: {
-    ...mapState(['swiperSetOnLoad']),
+    ...mapState(['route', 'swiperSetOnLoad']),
   },
   mounted() {
     const main = document.getElementById('main') || null
     if (!main) return
-    // eslint-disable-next-line no-console
-    console.log('swiperSetOnLoad', this.swiperSetOnLoad)
     if (!this.swiperSetOnLoad) {
+      if (this.route.from.name) {
+        this.topSlider.init()
+        this.setSwiperSetOnLoad(true)
+        return
+      }
       const MutationObserver =
         window.MutationObserver ||
         window.WebKitMutationObserver ||
@@ -76,8 +79,6 @@ export default {
             mutation.type === 'attributes' &&
             mutation.attributeName === 'style'
           ) {
-            // eslint-disable-next-line no-console
-            console.log('Mutated')
             this.topSlider.init()
             this.setSwiperSetOnLoad(true)
           }
@@ -86,8 +87,6 @@ export default {
       observer.observe(main, config)
       return
     }
-    // eslint-disable-next-line no-console
-    console.log('Not mutated', this.swiperSetOnLoad)
     this.topSlider.init()
   },
   beforeDestroy() {
