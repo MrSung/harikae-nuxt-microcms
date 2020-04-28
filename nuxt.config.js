@@ -142,6 +142,8 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
+    // Doc: https://github.com/paulgv/nuxt-vuex-router-sync
+    'nuxt-vuex-router-sync',
     // Doc: https://github.com/fukuiretu/nuxt-user-agent
     'nuxt-user-agent',
     // Doc: https://www.npmjs.com/package/nuxt-lazy-load/v/latest
