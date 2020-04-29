@@ -12,17 +12,18 @@ export const getters = {
   submenuItems: (state) => {
     if (!state.submenuItems) return null
     const { contents: submenuContents } = state.submenuItems
-    const filteredContents = submenuContents.map((content) => ({
-      slug: content.submenuFlag,
-      items: content.submenuItems,
-    }))
-    return filteredContents.map((submenuItem) =>
-      submenuItem.items.map((item) => ({
-        ...item,
-        id: nanoid(),
-        slug: submenuItem.slug,
+    return submenuContents
+      .map((content) => ({
+        slug: content.submenuFlag,
+        items: content.submenuItems,
       }))
-    )[0]
+      .map((submenuItem) =>
+        submenuItem.items.map((item) => ({
+          ...item,
+          id: nanoid(),
+          slug: submenuItem.slug,
+        }))
+      )[0]
   },
 }
 
