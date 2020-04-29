@@ -29,6 +29,7 @@ export default {
   env: {
     API_BASE_URL,
     API_KEY,
+    GA_TRACKING_ID,
   },
   /*
    ** Headers of the page
