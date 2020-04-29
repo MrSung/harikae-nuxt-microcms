@@ -78,7 +78,7 @@
       </li>
       <li :class="$style.navMenuLi">
         <a
-          href="https://store.harikae-co.com/"
+          :href="$options.staticData.LINK_ONLINE_STORE"
           :class="$style.navMenuAnchor"
           target="_blank"
         >
@@ -87,7 +87,7 @@
       </li>
       <li :class="[$style.navMenuLi, $style['navMenuLi--last']]">
         <a
-          href="https://www.instagram.com/harikae_official/"
+          :href="$options.staticData.LINK_INSTAGRAM"
           :class="$style.navMenuAnchor"
           target="_blank"
         >
@@ -99,7 +99,7 @@
           />
         </a>
         <a
-          href="https://www.facebook.com/harikaeofficial/"
+          :href="$options.staticData.LINK_FACEBOOK"
           :class="$style.navMenuAnchor"
           target="_blank"
         >
@@ -117,6 +117,11 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import {
+  LINK_INSTAGRAM,
+  LINK_FACEBOOK,
+  LINK_ONLINE_STORE,
+} from '~/config/externalLinks'
 
 export default {
   props: {
@@ -132,6 +137,11 @@ export default {
       type: Boolean,
       required: true,
     },
+  },
+  staticData: {
+    LINK_INSTAGRAM,
+    LINK_FACEBOOK,
+    LINK_ONLINE_STORE,
   },
   data: () => ({
     submenuItemsProject: null,

@@ -25,7 +25,7 @@
       :class="[$style.frame, $style['frame--rightBottom']]"
     >
       <a
-        href="https://store.harikae-co.com/"
+        :href="$options.staticData.LINK_ONLINE_STORE"
         :class="$style.storeLink"
         target="_blank"
       >
@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import { LINK_ONLINE_STORE } from '~/config/externalLinks'
+
 export default {
   props: {
     isNavMenuOpen: {
@@ -57,6 +59,9 @@ export default {
       type: Boolean,
       required: true,
     },
+  },
+  staticData: {
+    LINK_ONLINE_STORE,
   },
   methods: {
     handleNavButtonMouseOver() {
