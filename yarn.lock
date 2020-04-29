@@ -6617,7 +6617,7 @@ nuxt-user-agent@1.2.2:
   dependencies:
     woothee "^1.8.1"
 
-nuxt-vuex-router-sync@^0.0.3:
+nuxt-vuex-router-sync@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/nuxt-vuex-router-sync/-/nuxt-vuex-router-sync-0.0.3.tgz#fa7cd6b967dbab7e9efccd1ac2dfca4335ec1ad4"
   integrity sha512-mCnQEdu7s5+qxBzTZapSAw4tiustmbkb3WZlF5+RaN6wkRy/CMqrNhlcbhsJ8KsUiUZy4Ca2OcxDzZdYvQE24Q==
