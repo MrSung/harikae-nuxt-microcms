@@ -94,7 +94,7 @@ export default {
   &--rightBottom {
     bottom: 48px;
     right: 36px;
-    z-index: $z-1020;
+    z-index: $z-1000;
 
     @include mq(xs) {
       bottom: 20px;

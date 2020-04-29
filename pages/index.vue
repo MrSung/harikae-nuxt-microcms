@@ -20,7 +20,10 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
 import PageIndexSlide from '~/components/PageIndexSlide.vue'
+
+let observer // Instance of mutation observer
 
 export default {
   components: {
@@ -51,12 +54,46 @@ export default {
       },
     },
   }),
+  computed: {
+    ...mapState(['route', 'swiperSetOnLoad']),
+  },
   mounted() {
-    setTimeout(() => {
-      this.topSlider.init()
-    }, 400)
+    const main = document.getElementById('main') || null
+    if (!main) return
+    if (!this.swiperSetOnLoad) {
+      if (this.route.from.name) {
+        this.topSlider.init()
+        this.setSwiperSetOnLoad(true)
+        return
+      }
+      const MutationObserver =
+        window.MutationObserver ||
+        window.WebKitMutationObserver ||
+        window.MozMutationObserver
+      const config = {
+        attributes: true,
+      }
+      observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (
+            mutation.type === 'attributes' &&
+            mutation.attributeName === 'style'
+          ) {
+            this.topSlider.init()
+            this.setSwiperSetOnLoad(true)
+          }
+        })
+      })
+      observer.observe(main, config)
+      return
+    }
+    this.topSlider.init()
+  },
+  beforeDestroy() {
+    if (observer) observer.disconnect()
   },
   methods: {
+    ...mapActions(['setSwiperSetOnLoad']),
     handleTopSliderLinkClick(event, link) {
       if (link === '#') event.preventDefault()
     },

@@ -5,6 +5,7 @@ const apiSubmenu = `${process.env.API_BASE_URL}/submenu`
 
 export const state = () => ({
   submenuItems: null,
+  swiperSetOnLoad: false,
 })
 
 export const getters = {
@@ -29,6 +30,9 @@ export const mutations = {
   setSubmenuItems(state, payload) {
     state.submenuItems = payload
   },
+  setSwiperSetOnLoad(state, payload) {
+    state.swiperSetOnLoad = payload
+  },
 }
 
 export const actions = {
@@ -37,5 +41,8 @@ export const actions = {
       headers: { 'X-API-KEY': process.env.API_KEY },
     })
     commit('setSubmenuItems', responseData)
+  },
+  setSwiperSetOnLoad({ commit }, payload) {
+    commit('setSwiperSetOnLoad', payload)
   },
 }

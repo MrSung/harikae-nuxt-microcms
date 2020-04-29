@@ -144,6 +144,10 @@ export default {
     }
   }
 
+  [data-ua-smartphone] &--landscape:nth-of-type(n + 3) {
+    margin-top: -1px;
+  }
+
   &--mounted::before {
     background-color: $color-000b47;
     content: '';

@@ -7,6 +7,7 @@
       :class="$style.navBackdrop"
       @click="handleNavMenuBackdropClick"
     ></div>
+    <div :class="$style.navCurtain"></div>
     <div :class="$style.navMenuLogo">
       <template v-if="isMobile">
         <nuxt-link to="/" :class="$style.navMenuLogoLink">
@@ -173,6 +174,7 @@ export default {
   display: flex;
   left: 0;
   opacity: 0;
+  overflow-y: scroll;
   padding: 72px 0 28px;
   position: fixed;
   right: 0;
@@ -198,9 +200,26 @@ export default {
   top: 60px;
 }
 
+.navCurtain {
+  background-color: $color-2b3278;
+  content: '';
+  display: block;
+  height: 120px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: calc(100% - 300px);
+  z-index: $z-2;
+
+  @include mq(xs) {
+    height: 72px;
+    width: calc(100% - 64px);
+  }
+}
+
 .navMenuLogo {
   left: 48px;
-  position: absolute;
+  position: fixed;
   top: 55px;
 
   @include mq(xs) {
