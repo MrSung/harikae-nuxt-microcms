@@ -1,10 +1,10 @@
-# harikae-nuxt-microcms
+# Harikae
 
 > My fine Nuxt.js project
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
