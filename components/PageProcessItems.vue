@@ -96,8 +96,8 @@ export default {
   }
 
   @include mq(xs) {
-    height: 86vw;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
+    padding-bottom: 70px;
     width: 100%;
   }
 
