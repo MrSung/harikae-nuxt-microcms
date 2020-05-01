@@ -114,7 +114,7 @@ export default {
 
   &:not(:last-of-type) {
     @include mq(xs) {
-      margin-bottom: 28px;
+      margin-bottom: 34px;
     }
   }
 }
