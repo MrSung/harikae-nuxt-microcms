@@ -96,7 +96,6 @@ export default {
   }
 
   @include mq(xs) {
-    margin-bottom: 24px;
     padding-bottom: 70px;
     width: 100%;
   }
@@ -110,6 +109,12 @@ export default {
   &:not(:nth-of-type(4n)) {
     @include mq(sm) {
       margin-right: 20px;
+    }
+  }
+
+  &:not(:last-of-type) {
+    @include mq(xs) {
+      margin-bottom: 28px;
     }
   }
 }
