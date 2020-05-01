@@ -2,7 +2,13 @@
   <div :class="$style.container">
     <div :class="$style.containerInner">
       <div :class="$style.project">
-        <ul :class="$style.projectThumbs">
+        <ul
+          :class="[
+            $style.projectThumbs,
+            currentPathProject.projectModeLandscape &&
+              $style['projectThumbs--landscape'],
+          ]"
+        >
           <li
             v-for="(projectItem, index) in projectGalleryImages"
             :key="projectItem.id"
@@ -117,6 +123,24 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+
+  [data-ua-smartphone] &--landscape {
+    @include mq(xs) {
+      position: relative;
+    }
+  }
+
+  [data-ua-smartphone] &--landscape::after {
+    @include mq(xs) {
+      background-color: $color-ffffff;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 1px;
+      position: absolute;
+      width: 100%;
+    }
+  }
 }
 
 .projectThumb {
