@@ -86,7 +86,12 @@ export default {
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [{ src: '/script.js' }],
+    script: [
+      {
+        src: '//polyfill.io/v3/polyfill.min.js?features=MutationObserver',
+      },
+      { src: '/script.js' },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -179,6 +184,12 @@ export default {
    ** Build configuration
    */
   build: {
+    postcss: {
+      preset: {
+        autoprefixer: { grid: 'autoplace' },
+      },
+    },
+
     /*
      ** You can extend webpack config here
      */
