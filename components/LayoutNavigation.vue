@@ -81,6 +81,7 @@
           :href="$options.staticData.LINK_ONLINE_STORE"
           :class="$style.navMenuAnchor"
           target="_blank"
+          rel="noopener noreferrer"
         >
           online store
         </a>

@@ -28,6 +28,7 @@
         :href="$options.staticData.LINK_ONLINE_STORE"
         :class="$style.storeLink"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <span :class="$style.storeLinkText">online store</span>
       </a>

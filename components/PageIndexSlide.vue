@@ -4,6 +4,7 @@
       :href="topSliderLink"
       :class="$style.topSliderImage"
       :target="topSliderTargetBlank && '_blank'"
+      :rel="topSliderTargetBlank && 'noopener noreferrer'"
       :style="`background-image: url(${topSliderImageUrl})`"
       @click="handleTopSliderLinkClick($event, topSliderLink)"
     ></a>
