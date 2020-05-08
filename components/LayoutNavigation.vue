@@ -91,6 +91,7 @@
           :href="$options.staticData.LINK_INSTAGRAM"
           :class="$style.navMenuAnchor"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <img
             src="~/assets/img/icon_instagram.svg"
@@ -103,6 +104,7 @@
           :href="$options.staticData.LINK_FACEBOOK"
           :class="$style.navMenuAnchor"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <img
             src="~/assets/img/icon_facebook.svg"

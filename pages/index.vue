@@ -21,6 +21,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import { SITE_NAME, SITE_PROFILE } from '~/config/siteMeta'
 import PageIndexSlide from '~/components/PageIndexSlide.vue'
 
 let observer // Instance of mutation observer
@@ -99,7 +100,7 @@ export default {
     },
   },
   head: () => ({
-    title: 'Top',
+    titleTemplate: `${SITE_NAME} | ${SITE_PROFILE}`,
   }),
 }
 </script>
