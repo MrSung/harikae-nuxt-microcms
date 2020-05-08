@@ -87,6 +87,7 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
+      { src: '/redirect.js' },
       {
         src: '//polyfill.io/v3/polyfill.min.js?features=MutationObserver',
       },
