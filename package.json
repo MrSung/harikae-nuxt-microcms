@@ -32,7 +32,7 @@
     "@nuxtjs/sitemap": "2.2.1",
     "axios": "0.19.2",
     "imagesloaded": "4.1.4",
-    "nanoid": "3.1.5",
+    "nanoid": "3.1.6",
     "nuxt": "2.12.2",
     "nuxt-lazy-load": "1.2.2",
     "nuxt-social-meta": "0.0.1",
