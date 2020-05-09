@@ -36,6 +36,9 @@
       @mouseleave="handleNavMenuMouseLeave"
     >
       <li
+        v-if="
+          Array.isArray(submenuProjectItems) && submenuProjectItems.length > 0
+        "
         :class="[
           $style.navMenuLi,
           isDropdownOpen && $style['navMenuLi--dropdownOpen'],
@@ -51,9 +54,9 @@
         >
           project
         </a>
-        <ul v-if="submenuItemsProject" :class="$style.navMenuLiUl">
+        <ul :class="$style.navMenuLiUl">
           <li
-            v-for="submenuItem in submenuItemsProject"
+            v-for="submenuItem in submenuProjectItems"
             :key="submenuItem.id"
             :class="$style.navMenuLiLi"
           >
@@ -146,20 +149,14 @@ export default {
     LINK_FACEBOOK,
     LINK_ONLINE_STORE,
   },
-  data: () => ({
-    submenuItemsProject: null,
-  }),
   computed: {
-    ...mapGetters(['submenuItems']),
+    ...mapGetters(['submenuProjectItems']),
   },
-  async created() {
-    await this.getSubmenuData()
-    this.submenuItemsProject = this.submenuItems.filter(
-      (item) => item.slug === 'project'
-    )
+  created() {
+    this.getSubmenuProjectItems()
   },
   methods: {
-    ...mapActions(['getSubmenuData']),
+    ...mapActions(['getSubmenuProjectItems']),
     handleNavMenuMouseOver() {
       if (this.isMobile) return
       this.$emit('handle-nav-menu-mouse-over')
