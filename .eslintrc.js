@@ -2,20 +2,19 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
   },
   extends: [
     '@nuxtjs',
     'prettier',
     'prettier/vue',
     'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
+    'plugin:nuxt/recommended',
   ],
   plugins: ['prettier'],
-  // add your custom rules here
   rules: {
     'vue/no-v-html': 0,
     'vue/html-self-closing': [
@@ -24,11 +23,11 @@ module.exports = {
         html: {
           void: 'any',
           normal: 'never',
-          component: 'always'
+          component: 'always',
         },
         svg: 'always',
-        math: 'always'
-      }
-    ]
-  }
+        math: 'always',
+      },
+    ],
+  },
 }
