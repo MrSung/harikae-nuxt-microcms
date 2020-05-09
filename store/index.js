@@ -1,35 +1,26 @@
 import axios from 'axios'
 import { nanoid } from 'nanoid'
 
-const apiSubmenu = `${process.env.API_BASE_URL}/submenu`
+const apiSubmenuProject = `${process.env.API_BASE_URL}/submenu/amrAc0nY1`
 
 export const state = () => ({
-  submenuItems: null,
+  submenuProjectItems: null,
   swiperSetOnLoad: false,
 })
 
 export const getters = {
-  submenuItems: (state) => {
-    if (!state.submenuItems) return null
-    const { contents: submenuContents } = state.submenuItems
-    return submenuContents
-      .map((content) => ({
-        slug: content.submenuFlag,
-        items: content.submenuItems,
-      }))
-      .map((submenuItem) =>
-        submenuItem.items.map((item) => ({
-          ...item,
-          id: nanoid(),
-          slug: submenuItem.slug,
-        }))
-      )[0]
+  submenuProjectItems: (state) => {
+    if (!state.submenuProjectItems) return null
+    return state.submenuProjectItems.map((submenuItem) => ({
+      ...submenuItem,
+      id: nanoid(),
+    }))
   },
 }
 
 export const mutations = {
-  setSubmenuItems(state, payload) {
-    state.submenuItems = payload
+  setSubmenuProjectItems(state, payload) {
+    state.submenuProjectItems = payload
   },
   setSwiperSetOnLoad(state, payload) {
     state.swiperSetOnLoad = payload
@@ -37,11 +28,11 @@ export const mutations = {
 }
 
 export const actions = {
-  async getSubmenuData({ commit }) {
-    const { data: responseData } = await axios.get(apiSubmenu, {
+  async getSubmenuProjectItems({ commit }) {
+    const { data: responseDataProject } = await axios.get(apiSubmenuProject, {
       headers: { 'X-API-KEY': process.env.API_KEY },
     })
-    commit('setSubmenuItems', responseData)
+    commit('setSubmenuProjectItems', responseDataProject.submenuItems)
   },
   setSwiperSetOnLoad({ commit }, payload) {
     commit('setSwiperSetOnLoad', payload)
