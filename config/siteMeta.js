@@ -5,4 +5,4 @@ export const SITE_PROFILE =
 export const SITE_DESCRIPTION =
   'Harikae official website : Harikae think about future lifestyles from the perspective of genre mixes such as fashion, architecture, and interior.'
 export const SITE_KEYWORDS = 'fashion,architecture,interior'
-export const SITE_URL_PROD = 'https://harikae-co.com/'
+export const SITE_URL_PROD = 'https://www.harikae-co.com/'
