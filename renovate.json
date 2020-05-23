@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config:base"
+    "@nuxtjs"
   ],
   "minor": {
     "groupName": "all dependencies"
