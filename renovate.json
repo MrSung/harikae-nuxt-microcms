@@ -4,5 +4,6 @@
   ],
   "minor": {
     "groupName": "all dependencies"
-  }
+  },
+  "ignoreDeps": ["swiper"]
 }
