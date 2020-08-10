@@ -137,7 +137,7 @@ export default {
 
 .navButtonWrap {
   cursor: pointer;
-  padding-bottom: 28px;
+  padding-bottom: 20px;
   padding-left: 28px;
 
   @include mq(xs) {
