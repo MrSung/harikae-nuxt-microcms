@@ -75,9 +75,7 @@
         </nuxt-link>
       </li>
       <li :class="$style.navMenuLi">
-        <nuxt-link to="/about" :class="$style.navMenuAnchor">
-          about
-        </nuxt-link>
+        <nuxt-link to="/about" :class="$style.navMenuAnchor"> about </nuxt-link>
       </li>
       <li :class="$style.navMenuLi">
         <a
