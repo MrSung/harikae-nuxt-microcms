@@ -21,7 +21,7 @@ require('dotenv').config()
 const { API_BASE_URL, API_KEY, GA_TRACKING_ID } = process.env
 
 export default {
-  mode: 'universal',
+  target: 'static',
   /*
    ** Dotenv
    ** Doc: https://github.com/nuxt-community/dotenv-module
