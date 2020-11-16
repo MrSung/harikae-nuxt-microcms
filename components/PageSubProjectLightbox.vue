@@ -59,7 +59,7 @@ export default {
   },
   props: {
     currentPathProject: {
-      type: Object,
+      type: Array,
       default: () => [],
     },
   },

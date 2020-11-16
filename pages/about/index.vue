@@ -39,6 +39,9 @@ export default {
     )
     return { aboutResponseData }
   },
+  head: () => ({
+    title: 'About',
+  }),
   computed: {
     aboutThumbs() {
       const { url: aboutImageUrl } = this.aboutResponseData.aboutImage
@@ -49,9 +52,6 @@ export default {
       ]
     },
   },
-  head: () => ({
-    title: 'About',
-  }),
 }
 </script>
 

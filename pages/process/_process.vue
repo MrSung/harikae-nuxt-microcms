@@ -42,6 +42,17 @@ export default {
     )
     return { processResponseData }
   },
+  head() {
+    const title = this.currentPathProcess
+      ? this.currentPathProcess.processTitle
+      : 'Process article'
+    return {
+      title,
+      bodyAttrs: {
+        class: 'page-process',
+      },
+    }
+  },
   computed: {
     currentPathProcess() {
       const { process: processName } = this.$route.params
@@ -55,17 +66,6 @@ export default {
         id: nanoid(),
       }))
     },
-  },
-  head() {
-    const title = this.currentPathProcess
-      ? this.currentPathProcess.processTitle
-      : 'Process article'
-    return {
-      title,
-      bodyAttrs: {
-        class: 'page-process',
-      },
-    }
   },
 }
 </script>
