@@ -27,14 +27,6 @@ export default {
     )
     return { projectResponseData }
   },
-  computed: {
-    currentPathProject() {
-      const { project: projectName } = this.$route.params
-      return this.projectResponseData.find(
-        (obj) => obj.projectSlug === projectName
-      )
-    },
-  },
   head() {
     const title = this.currentPathProject
       ? this.currentPathProject.projectHeadingEn
@@ -45,6 +37,14 @@ export default {
         class: 'page-project',
       },
     }
+  },
+  computed: {
+    currentPathProject() {
+      const { project: projectName } = this.$route.params
+      return this.projectResponseData.find(
+        (obj) => obj.projectSlug === projectName
+      )
+    },
   },
 }
 </script>

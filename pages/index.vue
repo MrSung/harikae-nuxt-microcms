@@ -55,6 +55,9 @@ export default {
       },
     },
   }),
+  head: () => ({
+    titleTemplate: `${SITE_NAME} | ${SITE_PROFILE}`,
+  }),
   computed: {
     ...mapState(['route', 'swiperSetOnLoad']),
   },
@@ -99,9 +102,6 @@ export default {
       if (link === '#') event.preventDefault()
     },
   },
-  head: () => ({
-    titleTemplate: `${SITE_NAME} | ${SITE_PROFILE}`,
-  }),
 }
 </script>
 
